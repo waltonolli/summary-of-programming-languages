@@ -60,13 +60,6 @@ console.log(typeof novaVariavel); // "boolean"
 | ++ | incrementa |
 | -- | decrementa |
 | = | atribuição |
-| += | adição e atribuição |
-| -= | subtração e atribuição |
-| *= | multiplicação e atribuição |
-| /= | divisão e atribuição |
-| %= | módulo e atribuição |
-| && | e |
-| \|\| | ou |
 
 ## Operadores de comparação
 
@@ -175,8 +168,6 @@ if (isNightTime) {
 }
 ```
 
-### Forma abreviada de escrever em uma condição booleana:
-
 Em uma condição booleana, o JavaScript atribui o valor verdadeiro a uma variável se você usar o || operador `true` na sua atribuição:
 
 ```js
@@ -184,13 +175,28 @@ let username = '';
 let defaultName = username || 'Stranger'; // username se verdadeiro, 'Stranger' se falso
 ```
 
-### operador ternário (`condição ? a : b`)
+Operador ternário (`condição ? a : b`)
 
 ```js
 isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lights!');
 ```
 
-Outras formas: `else if`, `switch`, .
+Switch:
+- Uma estrutura de seleção de valores que executa um bloco de código para cada caso de valor.
+- É uma alternativa mais simples e eficiente para o if...else.
+
+```
+switch (valor) {
+  case 1:
+    // código a ser executado se valor for 1
+    break
+  case 2:
+    // código a ser executado se valor for 2
+    break
+  default:
+    // código a ser executado se valor não for 1 ou 2
+}
+```
 
 ---
 
