@@ -1,6 +1,17 @@
 # GLOSSÁRIO BÁSICO DE JAVASCRIPT
 
-
+- Entrada e saída de dados
+- Variáveis
+- Tipos de dados
+- Operadores
+- Condições / fluxo de controle
+- Funções
+- Arrays / listas
+- Objetos
+- Propriedades
+- Métodos
+- Instância
+- Loop
 
 ## ENTRADA E SAÍDA DE DADOS
 
@@ -160,7 +171,7 @@ const comprimento = 5;
 calcularArea(base, comprimento); // argumentos como variáveis
 ```
 
-### PARAMETROS PADRÕES
+### Parametros padrão (*default parameters*)
 Permitem que os parâmetros tenham um valor pré-determinado caso nenhum argumento seja passado para a função ou se o argumento for indefinido quando chamado.
 ```js
 function calcularArea(largura = 10, altura = 10) {
@@ -171,7 +182,7 @@ calcularArea(5); // 50
 calcularArea(6, 15); // 90
 ```
 
-### RETORNO (*return*)
+### Retorno (*return*)
 É usado para retornar um valor para o código que chamou a função. Por padrão, o valor resultante é indefinido.
 -Para capturar o valor retornado, utilize a palavra-chave `return`. Sem a palavra-chave `return`, a função calculará o valor mas retornará o valor `indefinido`.
 - Quando uma instrução de retorno é usada em um corpo de função, a execução da função é interrompida e o código que se segue não será executado.
@@ -185,7 +196,7 @@ const area = calcularArea(5, 10); // salva o valor retornado em uma variável
 console.log(area); // 50
 ```
 
-### FUNÇÕES AUXILIARES (*helper functions*)
+### Funções auxiliares (*helper functions*)
 Também podemos usar o valor de retorno de uma função dentro de outra função. Essas funções sendo chamadas dentro de outra função são frequentemente referidas como funções auxiliares.
 ```js
 function multiplicaNovePorCinco(num) {
@@ -199,7 +210,7 @@ function celsiusToFahrenheit(celsius) {
 celsiusToFahrenheit(0); // returns 32
 ```
 
-### EXPRESSÕES DE FUNÇÕES (*function expressions*)
+### Expressões de função (*function expressions*)
 - Se você usa function expression, defina a função antes de chamá-la. Se usa function declaration, a ordem no arquivo não importa.
 - Declare uma variável para fazer do nome da variável o nome, ou identificador, da função.
 - Em uma expressão de função, o nome da função geralmente é omitido. Uma função sem nome é chamada de *função anônima*.
