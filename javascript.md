@@ -130,7 +130,7 @@ isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lig
 - Uma estrutura de seleção de valores que executa um bloco de código para cada caso de valor.
 - É uma alternativa mais simples e eficiente para o if...else.
 
-```
+```js
 switch (expressao) {
   case valor1:
     // Código executado se expressao === valor1
