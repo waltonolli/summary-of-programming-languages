@@ -1,6 +1,6 @@
 # GLOSSÁRIO BÁSICO DE JAVASCRIPT
 
-- Entrada e saída de dados (#ENTRADA E SAÍDA DE DADOS)
+- [Entrada e saída de dados] (#ENTRADA E SAÍDA DE DADOS)
 - Variáveis (#VARIÁVEIS)
 - Tipos de dados (#TIPOS DE DADOS)
 - Operadores (#OPERADORES)
