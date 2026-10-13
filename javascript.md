@@ -1,6 +1,6 @@
 # GLOSSÁRIO BÁSICO DE JAVASCRIPT
 
-## Entrada e saída de dados
+## Entrada e saída de dados (*input* / *output*)
 
 - Entrada de dados é usada para ler dados do usuário
 - `prompt()` é usado para solicitar dados do usuário
@@ -11,8 +11,7 @@ const nome = prompt("Qual é o seu nome?")   // solicita o nome do usuário
 console.log(nome)                           // exibe o nome do usuário
 ```
 
-## Variáveis
-(*variables*)
+## Variáveis (*variables*)
 São "caixas" nomeadas que armazenam um valor na memória. 
 Em JavaScript, declaram-se com `let`, `const` ou `var`.
 - `let` é usado para declarar variáveis que podem ser alteradas.
@@ -27,8 +26,7 @@ console.log(`Seu nome é ${nome} e tem ${idade} anos.`) // Interpolação de var
 ### Hoisting
 O JavaScript é uma linguagem de *hoisting*, ou seja, o código é interpretado antes de ser executado. Isso significa que variáveis e funções são declaradas antes de serem usadas. Isso é útil para evitar problemas de escopo e garantir que as variáveis estejam disponíveis quando você as usa. 
 
-### Escopo
-(*scope*)
+### Escopo (*scope*)
 Escopo é a região do código onde uma variável (ou função) pode ser acessada. O escopo é definido pela ordem em que as declarações são executadas.
 - **Escopo global**: variáveis e funções declaradas fora de qualquer função.
 - **Escopo de função**: variáveis e funções declaradas dentro de uma função.
@@ -44,7 +42,7 @@ Escopo é a região do código onde uma variável (ou função) pode ser acessad
 - É mais fácil manter um código com escopo bem definido, pois ele será modular.
 - Economiza memória porque as variáveis ​​com escopo de bloco deixarão de existir após a conclusão da execução do bloco.
 
-## Tipos de dados
+## Tipos de dados (*data types*)
 
 - String
 - Number
@@ -64,7 +62,7 @@ console.log(typeof nome);   // "string"
 console.log(typeof novaVariavel); // "boolean"
 ```
 
-## Operadores
+## Operadores (*operators*)
 
 | Operador | Descrição |
 | -------- | --------- |
@@ -77,7 +75,7 @@ console.log(typeof novaVariavel); // "boolean"
 | -- | decrementa |
 | = | atribuição |
 
-## Operadores de comparação
+## Operadores de comparação (*comparison operators*)
 
 | Operador | Descrição |
 | -------- | --------- |
@@ -89,7 +87,7 @@ console.log(typeof novaVariavel); // "boolean"
 | < | less than |
 | <= | less than or equal to |
 
-## Operadores lógicos
+## Operadores lógicos (*logical operators*)
 
 | Operador | Descrição |
 | -------- | --------- |
@@ -97,8 +95,7 @@ console.log(typeof novaVariavel); // "boolean"
 | \|\| | ou |
 | ! | não, inverte |
 
-## Condições / fluxo de controle
-(*conditions* / *conditionals*)
+## Condições / fluxo de controle (*conditions* / *conditionals*)
 Estruturas que fazem o programa tomar decisões: um trecho de código só executa se uma expressão for verdadeira (*true*).
 
 ```js
@@ -118,7 +115,7 @@ let username = '';
 let defaultName = username || 'Stranger'; // username se verdadeiro, 'Stranger' se falso
 ```
 
-### Operador ternário
+### Operador ternário (*ternary operator*)
 (`condição ? a : b`)
 
 ```js
@@ -142,8 +139,7 @@ switch (valor) {
 }
 ```
 
-## Funções
-(*functions*)
+## Funções (*functions*)
 
 São blocos de código reutilizáveis que executam uma tarefa, podendo receber valores (*parameters*) e devolver um resultado (*return*).
 - ``Parametros` são tratados como variáveis dentro da função.
@@ -163,8 +159,7 @@ const comprimento = 5;
 calcularArea(base, comprimento); // argumentos como variáveis
 ```
 
-### Parametros padrão
-(*default parameters*)
+### Parametros padrão (*default parameters*)
 Permitem que os parâmetros tenham um valor pré-determinado caso nenhum argumento seja passado para a função ou se o argumento for indefinido quando chamado.
 ```js
 function calcularArea(largura = 10, altura = 10) {
@@ -175,8 +170,7 @@ calcularArea(5); // 50
 calcularArea(6, 15); // 90
 ```
 
-### Retorno
-(*return*)
+### Retorno (*return*)
 É usado para retornar um valor para o código que chamou a função. Por padrão, o valor resultante é indefinido.
 -Para capturar o valor retornado, utilize a palavra-chave `return`. Sem a palavra-chave `return`, a função calculará o valor mas retornará o valor `indefinido`.
 - Quando uma instrução de retorno é usada em um corpo de função, a execução da função é interrompida e o código que se segue não será executado.
@@ -190,8 +184,7 @@ const area = calcularArea(5, 10); // salva o valor retornado em uma variável
 console.log(area); // 50
 ```
 
-### Funções auxiliares
-(*helper functions*)
+### Funções auxiliares (*helper functions*)
 Também podemos usar o valor de retorno de uma função dentro de outra função. Essas funções sendo chamadas dentro de outra função são frequentemente referidas como funções auxiliares.
 ```js
 function multiplicaNovePorCinco(num) {
@@ -205,8 +198,7 @@ function celsiusToFahrenheit(celsius) {
 celsiusToFahrenheit(0); // returns 32
 ```
 
-### Expressões de função
-(*function expressions*)
+### Expressões de função (*function expressions*)
 - Se você usa function expression, defina a função antes de chamá-la. Se usa function declaration, a ordem no arquivo não importa.
 - Declare uma variável para fazer do nome da variável o nome, ou identificador, da função.
 - Em uma expressão de função, o nome da função geralmente é omitido. Uma função sem nome é chamada de *função anônima*.
@@ -218,8 +210,7 @@ const soma = function(a, b) {
 console.log(soma(2, 3)); // 5
 ```
 
-### Arrow Functions
-(*arrow functions*)
+### Arrow Functions (*arrow functions*)
 São funções anônimas, que podem ser usadas em lugar de funções nomeadas. São úteis para criar funções de uma única expressão.
 ```js
 const areaRetangulo = (larg, alt) => {
@@ -242,7 +233,7 @@ const functionName = param => { /* ... */ };
 const functionName = (param1, param2) => { /* ... */ };
 ```
 
-### Refatoração de arrow functions
+### Refatoração de arrow functions (*arrow function refactoring*)
 Se temos a função:
 ```js
 const squareNum = (num) => {
@@ -255,8 +246,7 @@ Podemos refatorar para:
 const squareNum = num => num * num;
 ```
 
-## Arrays / listas
-(*arrays*)
+## Arrays / listas (*arrays*)
 Uma lista é uma sequência ordenada de valores. Uma lista pode ser de qualquer tipo de dado, incluindo outras listas.
 Arrays podem armazenar qualquer tipo de dado, incluindo outros arrays.
 - Para criar um array, utilize a sintaxe `[]`.
@@ -269,7 +259,7 @@ const array2 = ["um", "dois", "três"];
 const array3 = [array1, array2];
 ```
 
-### Acessando um elemento
+### Acessando um elemento (*accessing an element*)
 Para acessar um elemento de um array, utilize o índice do elemento. 
 O primeiro elemento do array tem índice 0, o segundo 1, e assim por diante.
 ```js
@@ -279,7 +269,7 @@ array1[2]; // 3
 array1[3]; // 4
 array1[4]; // 5
 ```
-### Alterando Valor de um Elemento
+### Alterando Valor de um Elemento (*changing value of an element*)
 Para alterar o valor de um elemento de um array, utilize o índice do elemento.
 
 
