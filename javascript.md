@@ -1,10 +1,12 @@
 # Glossário básico de JavaScript
 
+
+
 ## Entrada e saída de dados
 
 - Entrada de dados é usada para ler dados do usuário
-- prompt é usado para solicitar dados do usuário
-- console.log é usado para exibir dados no console
+- `prompt()` é usado para solicitar dados do usuário
+- `console.log()` é usado para exibir dados no console
 
 ```js
 const nome = prompt("Qual é o seu nome?")   // solicita o nome do usuário
@@ -14,9 +16,9 @@ console.log(nome)                           // exibe o nome do usuário
 ## Variáveis (*variables*)
 São "caixas" nomeadas que armazenam um valor na memória. 
 Em JavaScript, declaram-se com `let`, `const` ou `var`.
-- let é usado para declarar variáveis que podem ser alteradas.
-- const é usado para declarar variáveis que não podem ser alteradas
-- var caiu em desuso, mas ainda é suportado
+- `let` é usado para declarar variáveis que podem ser alteradas.
+- `const` é usado para declarar variáveis que não podem ser alteradas
+- `var` caiu em desuso, mas ainda é suportado
 
 ```js
 let idade = 30;      // pode ser alterada
@@ -34,17 +36,13 @@ console.log(`Seu nome é ${nome} e tem ${idade} anos.`) // Interpolação de var
 - Null
 - Undefined
 
-Para descobrir o tipo de um valor, utilize o operador `typeof`:
+Para descobrir o tipo de um valor, utilize o operador `typeof()`:
 
 ```js
 const nome = "Walkyria";
-const idade = 30;
-const pessoa = { nome: "Ana", idade: 30 };
 const novaVariavel = True;
 
 console.log(typeof nome);   // "string"
-console.log(typeof idade);  // "number"
-console.log(typeof pessoa); // "object"
 console.log(typeof novaVariavel); // "boolean"
 ```
 
@@ -81,15 +79,158 @@ console.log(typeof novaVariavel); // "boolean"
 | \|\| | ou |
 | ! | não, inverte |
 
-## Funções (*functions*)
-São blocos de código reutilizáveis que executam uma tarefa, podendo receber valores (*parameters*) e devolver um resultado (*return*).
+## Condições / Fluxo de Controle (*conditions* / *conditionals*)
+Estruturas que fazem o programa tomar decisões: um trecho de código só executa se uma expressão for verdadeira (*true*).
 
 ```js
-function somar(a, b) {
-  return a + b;
+let isNightTime = true;
+
+if (isNightTime) {
+  console.log('Turn on the lights!');
+} else {
+  console.log('Turn off the lights!');
 }
-somar(2, 3); // 5
 ```
+
+Em uma condição booleana, o JavaScript atribui o valor verdadeiro a uma variável se você usar o || operador `true` na sua atribuição:
+
+```js
+let username = '';
+let defaultName = username || 'Stranger'; // username se verdadeiro, 'Stranger' se falso
+```
+
+Operador ternário (`condição ? a : b`)
+
+```js
+isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lights!');
+```
+
+Switch:
+- Uma estrutura de seleção de valores que executa um bloco de código para cada caso de valor.
+- É uma alternativa mais simples e eficiente para o if...else.
+
+```
+switch (valor) {
+  case 1:
+    // código a ser executado se valor for 1
+    break
+  case 2:
+    // código a ser executado se valor for 2
+    break
+  default:
+    // código a ser executado se valor não for 1 ou 2
+}
+```
+
+
+## Funções (*functions*)
+
+São blocos de código reutilizáveis que executam uma tarefa, podendo receber valores (*parameters*) e devolver um resultado (*return*).
+- ``Parametros` são tratados como variáveis dentro da função.
+- `Return` é o valor que a função devolve.
+- `Identificador` é o nome da função.
+- `Argumentos` são os valores que são passados para a função quando ela é chamada.
+
+Sintaxe:
+```js
+function calcularArea(largura, altura) { 
+  console.log(largura * altura); // corpo da função - código a ser executado
+}
+calcularArea(5, 10); // argumentos como valores
+
+const base = 10;
+const comprimento = 5;
+calcularArea(base, comprimento); // argumentos como variáveis
+```
+
+**Parâmetros padrão** 
+Permitem que os parâmetros tenham um valor pré-determinado caso nenhum argumento seja passado para a função ou se o argumento for indefinido quando chamado.
+```js
+function calcularArea(largura = 10, altura = 10) {
+  console.log(largura * altura);
+}
+calcularArea(); // 100
+calcularArea(5); // 50
+calcularArea(6, 15); // 90
+```
+
+**Return**
+É usado para retornar um valor para o código que chamou a função. Por padrão, o valor resultante é indefinido.
+-Para capturar o valor retornado, utilize a palavra-chave `return`. Sem a palavra-chave `return`, a função calculará o valor mas retornará o valor `indefinido`.
+- Quando uma instrução de retorno é usada em um corpo de função, a execução da função é interrompida e o código que se segue não será executado.
+- A palavra-chave de retorno é poderosa porque permite que funções produzam uma saída. Podemos então salvar a saída em uma variável para uso posterior.
+```js
+function calcularArea(largura, altura) {
+  return = largura * altura;
+  
+}
+const area = calcularArea(5, 10); // salva o valor retornado em uma variável
+console.log(area); // 50
+```
+
+**Funções auxiliares** (*helper functions*)
+Também podemos usar o valor de retorno de uma função dentro de outra função. Essas funções sendo chamadas dentro de outra função são frequentemente referidas como funções auxiliares.
+```js
+function multiplicaNovePorCinco(num) {
+  return num * 9/5;
+};
+
+function celsiusToFahrenheit(celsius) {
+  return multiplicaNovePorCinco(celsius) + 32;
+};
+
+celsiusToFahrenheit(0); // returns 32
+```
+
+**Expressões de função** (*function expressions*)
+- Se você usa function expression, defina a função antes de chamá-la. Se usa function declaration, a ordem no arquivo não importa.
+- Declare uma variável para fazer do nome da variável o nome, ou identificador, da função.
+- Em uma expressão de função, o nome da função geralmente é omitido. Uma função sem nome é chamada de *função anônima*.
+- Uma expressão de função é frequentemente armazenada em uma variável para ser referenciada.
+```js
+const soma = function(a, b) {
+  return a + b;
+};
+console.log(soma(2, 3)); // 5
+```
+
+**Arrow Functions**
+- São funções anônimas, que podem ser usadas em lugar de funções nomeadas.
+- São úteis para criar funções de uma única expressão.
+```js
+const areaRetangulo = (larg, alt) => {
+  let area = larg * alt;
+  return area;
+}
+
+const soma = (a, b) => a + b;
+```
+
+- Funções que aceitam apenas um parâmetro não precisam que esse parâmetro seja encerrado entre parênteses.
+- No entanto, se uma função recebe zero ou vários parâmetros, os parênteses são obrigatórios.
+- Um corpo de função composto por um bloco de linha única não precisa de chaves{}. Sem as chaves{}, tudo o que essa linha avaliar será automaticamente devolvido. O conteúdo do bloco deve seguir imediatamente a seta => e a palavra-chave de retorno pode ser removida. Isso é chamado de *retorno implícito*.
+```js
+//ZERO PARAMETERS
+const functionName = () => { /* ... */ };
+//ONE PARAMETER
+const functionName = param => { /* ... */ };
+//MULTIPLE PARAMETERS
+const functionName = (param1, param2) => { /* ... */ };
+```
+
+**Refatoração de arrow functions**
+Se temos a função:
+```js
+const squareNum = (num) => {
+  return num * num;
+};
+```
+
+Podemos refatorar para:
+```js
+const squareNum = num => num * num;
+```
+
 
 ## Objetos (*objects*)
 São coleções de propriedades e métodos agrupados sob um mesmo nome. Representam "coisas" (um usuário, um produto, uma data).
@@ -155,50 +296,7 @@ for (let i = 0; i < 3; i++) {
 
 Outros tipos: `while`, `do...while`, `for...of`, `for...in`.
 
-## Condições (*conditions* / *conditionals*)
-Estruturas que fazem o programa tomar decisões: um trecho de código só executa se uma expressão for verdadeira (*true*).
 
-```js
-let isNightTime = true;
-
-if (isNightTime) {
-  console.log('Turn on the lights!');
-} else {
-  console.log('Turn off the lights!');
-}
-```
-
-Em uma condição booleana, o JavaScript atribui o valor verdadeiro a uma variável se você usar o || operador `true` na sua atribuição:
-
-```js
-let username = '';
-let defaultName = username || 'Stranger'; // username se verdadeiro, 'Stranger' se falso
-```
-
-Operador ternário (`condição ? a : b`)
-
-```js
-isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lights!');
-```
-
-Switch:
-- Uma estrutura de seleção de valores que executa um bloco de código para cada caso de valor.
-- É uma alternativa mais simples e eficiente para o if...else.
-
-```
-switch (valor) {
-  case 1:
-    // código a ser executado se valor for 1
-    break
-  case 2:
-    // código a ser executado se valor for 2
-    break
-  default:
-    // código a ser executado se valor não for 1 ou 2
-}
-```
-
----
 
 ## Resumo
 
