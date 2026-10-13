@@ -28,16 +28,17 @@ console.log(`Seu nome é ${nome} e tem ${idade} anos.`) // Interpolação de var
 O JavaScript é uma linguagem de *hoisting*, ou seja, o código é interpretado antes de ser executado. Isso significa que variáveis e funções são declaradas antes de serem usadas. Isso é útil para evitar problemas de escopo e garantir que as variáveis estejam disponíveis quando você as usa. 
 
 ### Escopo
+(*scope*)
 Escopo é a região do código onde uma variável (ou função) pode ser acessada. O escopo é definido pela ordem em que as declarações são executadas.
 - **Escopo global**: variáveis e funções declaradas fora de qualquer função.
 - **Escopo de função**: variáveis e funções declaradas dentro de uma função.
 - **Escopo de bloco**: variáveis e funções declaradas dentro de um bloco de código (qualque trecho declarado entre chaves {}).
 
-**Cadeia de escopo**: Cadeia de escopo é a ordem em que as declarações são executadas. Quando você usa uma variável, o JavaScript a procura primeiro no escopo atual; se não achar, sobe para o escopo de fora, e assim por diante até o global. Nunca o contrário: o escopo externo não enxerga o interno.
+**Cadeia de escopo (Scope Chain)**: Cadeia de escopo é a ordem em que as declarações são executadas. Quando você usa uma variável, o JavaScript a procura primeiro no escopo atual; se não achar, sobe para o escopo de fora, e assim por diante até o global. Nunca o contrário: o escopo externo não enxerga o interno.
 
 **Poluição de escopo (Scope Pollution)**: A poluição do escopo ocorre quando temos muitas variáveis no espaço de nomes global, ou quando reutilizamos variáveis em diferentes escopos. A poluição de escopo dificulta acompanhar nossas diferentes variáveis e nos prepara para possíveis acidentes.
 
-**Bom exemplo de escopo**: Devemos seguir as melhores práticas para delimitar o escopo de nossas variáveis ​​da forma mais restrita possível, utilizando escopo de bloco.
+**Bom exemplo de escopo (Good Scope Example)**: Devemos seguir as melhores práticas para delimitar o escopo de nossas variáveis ​​da forma mais restrita possível, utilizando escopo de bloco.
 - Tornará o código mais legível, já que os blocos o organizarão em seções distintas.
 - Torna o código mais compreensível, esclarecendo quais variáveis ​​estão associadas a diferentes partes do programa, em vez de ter que rastreá-las linha por linha!
 - É mais fácil manter um código com escopo bem definido, pois ele será modular.
@@ -76,7 +77,7 @@ console.log(typeof novaVariavel); // "boolean"
 | -- | decrementa |
 | = | atribuição |
 
-## OPERADORES DE COMPARAÇÃO
+## Operadores de comparação
 
 | Operador | Descrição |
 | -------- | --------- |
@@ -88,7 +89,7 @@ console.log(typeof novaVariavel); // "boolean"
 | < | less than |
 | <= | less than or equal to |
 
-## OPERADORES LÓGICOS
+## Operadores lógicos
 
 | Operador | Descrição |
 | -------- | --------- |
@@ -96,7 +97,8 @@ console.log(typeof novaVariavel); // "boolean"
 | \|\| | ou |
 | ! | não, inverte |
 
-## CONDIÇÕES / FLUXO DE CONTROLE (*conditions* / *conditionals*)
+## Condições / fluxo de controle
+(*conditions* / *conditionals*)
 Estruturas que fazem o programa tomar decisões: um trecho de código só executa se uma expressão for verdadeira (*true*).
 
 ```js
@@ -116,13 +118,14 @@ let username = '';
 let defaultName = username || 'Stranger'; // username se verdadeiro, 'Stranger' se falso
 ```
 
-Operador ternário (`condição ? a : b`)
+### Operador ternário
+(`condição ? a : b`)
 
 ```js
 isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lights!');
 ```
 
-Switch:
+### Switch
 - Uma estrutura de seleção de valores que executa um bloco de código para cada caso de valor.
 - É uma alternativa mais simples e eficiente para o if...else.
 
@@ -139,7 +142,8 @@ switch (valor) {
 }
 ```
 
-## FUNÇÕES (*functions*)
+## Funções
+(*functions*)
 
 São blocos de código reutilizáveis que executam uma tarefa, podendo receber valores (*parameters*) e devolver um resultado (*return*).
 - ``Parametros` são tratados como variáveis dentro da função.
@@ -159,7 +163,8 @@ const comprimento = 5;
 calcularArea(base, comprimento); // argumentos como variáveis
 ```
 
-### Parametros padrão (*default parameters*)
+### Parametros padrão
+(*default parameters*)
 Permitem que os parâmetros tenham um valor pré-determinado caso nenhum argumento seja passado para a função ou se o argumento for indefinido quando chamado.
 ```js
 function calcularArea(largura = 10, altura = 10) {
@@ -170,7 +175,8 @@ calcularArea(5); // 50
 calcularArea(6, 15); // 90
 ```
 
-### Retorno (*return*)
+### Retorno
+(*return*)
 É usado para retornar um valor para o código que chamou a função. Por padrão, o valor resultante é indefinido.
 -Para capturar o valor retornado, utilize a palavra-chave `return`. Sem a palavra-chave `return`, a função calculará o valor mas retornará o valor `indefinido`.
 - Quando uma instrução de retorno é usada em um corpo de função, a execução da função é interrompida e o código que se segue não será executado.
@@ -184,7 +190,8 @@ const area = calcularArea(5, 10); // salva o valor retornado em uma variável
 console.log(area); // 50
 ```
 
-### Funções auxiliares (*helper functions*)
+### Funções auxiliares
+(*helper functions*)
 Também podemos usar o valor de retorno de uma função dentro de outra função. Essas funções sendo chamadas dentro de outra função são frequentemente referidas como funções auxiliares.
 ```js
 function multiplicaNovePorCinco(num) {
@@ -198,7 +205,8 @@ function celsiusToFahrenheit(celsius) {
 celsiusToFahrenheit(0); // returns 32
 ```
 
-### Expressões de função (*function expressions*)
+### Expressões de função
+(*function expressions*)
 - Se você usa function expression, defina a função antes de chamá-la. Se usa function declaration, a ordem no arquivo não importa.
 - Declare uma variável para fazer do nome da variável o nome, ou identificador, da função.
 - Em uma expressão de função, o nome da função geralmente é omitido. Uma função sem nome é chamada de *função anônima*.
@@ -210,7 +218,8 @@ const soma = function(a, b) {
 console.log(soma(2, 3)); // 5
 ```
 
-### ARROW FUNCTIONS (*arrow functions*)
+### Arrow Functions
+(*arrow functions*)
 São funções anônimas, que podem ser usadas em lugar de funções nomeadas. São úteis para criar funções de uma única expressão.
 ```js
 const areaRetangulo = (larg, alt) => {
@@ -233,7 +242,7 @@ const functionName = param => { /* ... */ };
 const functionName = (param1, param2) => { /* ... */ };
 ```
 
-### REFATORAÇÃO DE ARROW FUNCTIONS
+### Refatoração de arrow functions
 Se temos a função:
 ```js
 const squareNum = (num) => {
@@ -246,7 +255,8 @@ Podemos refatorar para:
 const squareNum = num => num * num;
 ```
 
-## ARRAYS / LISTAS (*arrays*)
+## Arrays / listas
+(*arrays*)
 Uma lista é uma sequência ordenada de valores. Uma lista pode ser de qualquer tipo de dado, incluindo outras listas.
 Arrays podem armazenar qualquer tipo de dado, incluindo outros arrays.
 - Para criar um array, utilize a sintaxe `[]`.
@@ -259,7 +269,7 @@ const array2 = ["um", "dois", "três"];
 const array3 = [array1, array2];
 ```
 
-### ACCESSO A UM ELEMENTO
+### Acessando um elemento
 Para acessar um elemento de um array, utilize o índice do elemento. 
 O primeiro elemento do array tem índice 0, o segundo 1, e assim por diante.
 ```js
@@ -269,18 +279,20 @@ array1[2]; // 3
 array1[3]; // 4
 array1[4]; // 5
 ```
-### ALTERAÇÃO DE VALOR
+### Alterando Valor de um Elemento
 Para alterar o valor de um elemento de um array, utilize o índice do elemento.
 
 
-## Objetos (*objects*)
+## Objetos
+(*objects*)
 São coleções de propriedades e métodos agrupados sob um mesmo nome. Representam "coisas" (um usuário, um produto, uma data).
 
 ```js
 const carro = { marca: "Fiat", ano: 2024, ligar() { /* ... */ } };
 ```
 
-## Propriedades (*properties*)
+## Propriedades
+(*properties*)
 São valores associados a um objeto, no formato chave-valor. Descrevem características dele.
 
 ```js
@@ -288,7 +300,8 @@ const pessoa = { nome: "Ana", idade: 30 };
 pessoa.nome; // "Ana" → "nome" é uma propriedade
 ```
 
-## Métodos (*methods*)
+## Métodos
+(*methods*)
 São funções que pertencem a um objeto. Descrevem ações que ele pode executar.
 
 ```js
@@ -299,7 +312,8 @@ const pessoa = {
 pessoa.saudar();
 ```
 
-## Instância (*instance*)
+## Instância
+(*instance*)
 É um objeto concreto criado a partir de um molde (uma *class* ou uma função construtora). A classe define a estrutura (quais propriedades e métodos existem); a instância é uma "cópia" real dessa estrutura, com seus próprios valores. Cada instância é independente das outras.
 
 Analogia: a classe é a planta de uma casa; cada casa construída a partir dela é uma instância.
