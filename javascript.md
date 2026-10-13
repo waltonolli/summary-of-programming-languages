@@ -1,8 +1,8 @@
-# Glossário básico de JavaScript
+# GLOSSÁRIO BÁSICO DE JAVASCRIPT
 
 
 
-## Entrada e saída de dados
+## ENTRADA E SAÍDA DE DADOS
 
 - Entrada de dados é usada para ler dados do usuário
 - `prompt()` é usado para solicitar dados do usuário
@@ -13,7 +13,7 @@ const nome = prompt("Qual é o seu nome?")   // solicita o nome do usuário
 console.log(nome)                           // exibe o nome do usuário
 ```
 
-## Variáveis (*variables*)
+## VARIÁVEIS (*variables*)
 São "caixas" nomeadas que armazenam um valor na memória. 
 Em JavaScript, declaram-se com `let`, `const` ou `var`.
 - `let` é usado para declarar variáveis que podem ser alteradas.
@@ -25,8 +25,26 @@ let idade = 30;      // pode ser alterada
 const nome = "Walkyria";       // não pode ser reatribuída
 console.log(`Seu nome é ${nome} e tem ${idade} anos.`) // Interpolação de variaveis em strings. Tamplete literal com `${}`
 ```
+### Hoisting
+O JavaScript é uma linguagem de *hoisting*, ou seja, o código é interpretado antes de ser executado. Isso significa que variáveis e funções são declaradas antes de serem usadas. Isso é útil para evitar problemas de escopo e garantir que as variáveis estejam disponíveis quando você as usa. 
 
-## Tipos de dados
+### ESCOPO
+Escopo é a região do código onde uma variável (ou função) pode ser acessada. O escopo é definido pela ordem em que as declarações são executadas.
+- **Escopo global**: variáveis e funções declaradas fora de qualquer função.
+- **Escopo de função**: variáveis e funções declaradas dentro de uma função.
+- **Escopo de bloco**: variáveis e funções declaradas dentro de um bloco de código (qualque trecho declarado entre chaves {}).
+
+**Cadeia de escopo**: Cadeia de escopo é a ordem em que as declarações são executadas. Quando você usa uma variável, o JavaScript a procura primeiro no escopo atual; se não achar, sobe para o escopo de fora, e assim por diante até o global. Nunca o contrário: o escopo externo não enxerga o interno.
+
+**Poluição de escopo (Scope Pollution)**: A poluição do escopo ocorre quando temos muitas variáveis no espaço de nomes global, ou quando reutilizamos variáveis em diferentes escopos. A poluição de escopo dificulta acompanhar nossas diferentes variáveis e nos prepara para possíveis acidentes.
+
+**Bom exemplo de escopo**: Devemos seguir as melhores práticas para delimitar o escopo de nossas variáveis ​​da forma mais restrita possível, utilizando escopo de bloco.
+- Tornará o código mais legível, já que os blocos o organizarão em seções distintas.
+- Torna o código mais compreensível, esclarecendo quais variáveis ​​estão associadas a diferentes partes do programa, em vez de ter que rastreá-las linha por linha!
+- É mais fácil manter um código com escopo bem definido, pois ele será modular.
+- Economiza memória porque as variáveis ​​com escopo de bloco deixarão de existir após a conclusão da execução do bloco.
+
+## TIPOS DE DADOS
 
 - String
 - Number
@@ -46,7 +64,7 @@ console.log(typeof nome);   // "string"
 console.log(typeof novaVariavel); // "boolean"
 ```
 
-## Operadores
+## OPERADORES
 
 | Operador | Descrição |
 | -------- | --------- |
@@ -59,7 +77,7 @@ console.log(typeof novaVariavel); // "boolean"
 | -- | decrementa |
 | = | atribuição |
 
-## Operadores de comparação
+## OPERADORES DE COMPARAÇÃO
 
 | Operador | Descrição |
 | -------- | --------- |
@@ -71,7 +89,7 @@ console.log(typeof novaVariavel); // "boolean"
 | < | less than |
 | <= | less than or equal to |
 
-## Operadores lógicos
+## OPERADORES LÓGICOS
 
 | Operador | Descrição |
 | -------- | --------- |
@@ -79,7 +97,7 @@ console.log(typeof novaVariavel); // "boolean"
 | \|\| | ou |
 | ! | não, inverte |
 
-## Condições / Fluxo de Controle (*conditions* / *conditionals*)
+## CONDIÇÕES / FLUXO DE CONTROLE (*conditions* / *conditionals*)
 Estruturas que fazem o programa tomar decisões: um trecho de código só executa se uma expressão for verdadeira (*true*).
 
 ```js
@@ -122,8 +140,7 @@ switch (valor) {
 }
 ```
 
-
-## Funções (*functions*)
+## FUNÇÕES (*functions*)
 
 São blocos de código reutilizáveis que executam uma tarefa, podendo receber valores (*parameters*) e devolver um resultado (*return*).
 - ``Parametros` são tratados como variáveis dentro da função.
@@ -143,7 +160,7 @@ const comprimento = 5;
 calcularArea(base, comprimento); // argumentos como variáveis
 ```
 
-**Parâmetros padrão** 
+### PARAMETROS PADRÕES
 Permitem que os parâmetros tenham um valor pré-determinado caso nenhum argumento seja passado para a função ou se o argumento for indefinido quando chamado.
 ```js
 function calcularArea(largura = 10, altura = 10) {
@@ -154,7 +171,7 @@ calcularArea(5); // 50
 calcularArea(6, 15); // 90
 ```
 
-**Return**
+### RETORNO (*return*)
 É usado para retornar um valor para o código que chamou a função. Por padrão, o valor resultante é indefinido.
 -Para capturar o valor retornado, utilize a palavra-chave `return`. Sem a palavra-chave `return`, a função calculará o valor mas retornará o valor `indefinido`.
 - Quando uma instrução de retorno é usada em um corpo de função, a execução da função é interrompida e o código que se segue não será executado.
@@ -168,7 +185,7 @@ const area = calcularArea(5, 10); // salva o valor retornado em uma variável
 console.log(area); // 50
 ```
 
-**Funções auxiliares** (*helper functions*)
+### FUNÇÕES AUXILIARES (*helper functions*)
 Também podemos usar o valor de retorno de uma função dentro de outra função. Essas funções sendo chamadas dentro de outra função são frequentemente referidas como funções auxiliares.
 ```js
 function multiplicaNovePorCinco(num) {
@@ -182,7 +199,7 @@ function celsiusToFahrenheit(celsius) {
 celsiusToFahrenheit(0); // returns 32
 ```
 
-**Expressões de função** (*function expressions*)
+### EXPRESSÕES DE FUNÇÕES (*function expressions*)
 - Se você usa function expression, defina a função antes de chamá-la. Se usa function declaration, a ordem no arquivo não importa.
 - Declare uma variável para fazer do nome da variável o nome, ou identificador, da função.
 - Em uma expressão de função, o nome da função geralmente é omitido. Uma função sem nome é chamada de *função anônima*.
@@ -194,9 +211,8 @@ const soma = function(a, b) {
 console.log(soma(2, 3)); // 5
 ```
 
-**Arrow Functions**
-- São funções anônimas, que podem ser usadas em lugar de funções nomeadas.
-- São úteis para criar funções de uma única expressão.
+### ARROW FUNCTIONS (*arrow functions*)
+São funções anônimas, que podem ser usadas em lugar de funções nomeadas. São úteis para criar funções de uma única expressão.
 ```js
 const areaRetangulo = (larg, alt) => {
   let area = larg * alt;
@@ -206,9 +222,9 @@ const areaRetangulo = (larg, alt) => {
 const soma = (a, b) => a + b;
 ```
 
-- Funções que aceitam apenas um parâmetro não precisam que esse parâmetro seja encerrado entre parênteses.
-- No entanto, se uma função recebe zero ou vários parâmetros, os parênteses são obrigatórios.
-- Um corpo de função composto por um bloco de linha única não precisa de chaves{}. Sem as chaves{}, tudo o que essa linha avaliar será automaticamente devolvido. O conteúdo do bloco deve seguir imediatamente a seta => e a palavra-chave de retorno pode ser removida. Isso é chamado de *retorno implícito*.
+Funções que aceitam apenas um parâmetro não precisam que esse parâmetro seja encerrado entre parênteses.
+No entanto, se uma função recebe zero ou vários parâmetros, os parênteses são obrigatórios.
+Um corpo de função composto por um bloco de linha única não precisa de chaves{}. Sem as chaves{}, tudo o que essa linha avaliar será automaticamente devolvido. O conteúdo do bloco deve seguir imediatamente a seta => e a palavra-chave de retorno pode ser removida. Isso é chamado de *retorno implícito*.
 ```js
 //ZERO PARAMETERS
 const functionName = () => { /* ... */ };
@@ -218,7 +234,7 @@ const functionName = param => { /* ... */ };
 const functionName = (param1, param2) => { /* ... */ };
 ```
 
-**Refatoração de arrow functions**
+### REFATORAÇÃO DE ARROW FUNCTIONS
 Se temos a função:
 ```js
 const squareNum = (num) => {
@@ -230,6 +246,32 @@ Podemos refatorar para:
 ```js
 const squareNum = num => num * num;
 ```
+
+## ARRAYS / LISTAS (*arrays*)
+Uma lista é uma sequência ordenada de valores. Uma lista pode ser de qualquer tipo de dado, incluindo outras listas.
+Arrays podem armazenar qualquer tipo de dado, incluindo outros arrays.
+- Para criar um array, utilize a sintaxe `[]`.
+- Cada item dentro de um array é chamado de *elemento*.
+- Cada elemento é separado por vírgula.
+- Arrays são indexados a partir de 0.
+```js
+const array1 = [1, 2, 3, 4, 5];
+const array2 = ["um", "dois", "três"];
+const array3 = [array1, array2];
+```
+
+### ACCESSO A UM ELEMENTO
+Para acessar um elemento de um array, utilize o índice do elemento. 
+O primeiro elemento do array tem índice 0, o segundo 1, e assim por diante.
+```js
+array1[0]; // 1
+array1[1]; // 2
+array1[2]; // 3
+array1[3]; // 4
+array1[4]; // 5
+```
+### ALTERAÇÃO DE VALOR
+Para alterar o valor de um elemento de um array, utilize o índice do elemento.
 
 
 ## Objetos (*objects*)
