@@ -1,19 +1,5 @@
 # GLOSSÁRIO BÁSICO DE JAVASCRIPT
 
-- [Entrada e saída de dados] (#entrada-e-saída-de-dados)
-- [Variáveis] (#variaveis)
-- [Tipos de dados] (#tipos-de-dados)
-- [Operadores] (#operadores)
-- [Condições / fluxo de controle] (#condicoes)
-- [Funções] (#funcoes)
-- Arrays / listas (#ARRAYS / LISTAS)
-- Objetos (#OBJETOS)
-- Propriedades (#PROPRIEDADES)
-- Métodos (#MÉTODOS)
-- Instância (#INSTÂNCIA)
-- Loop (#LOOP)
-- Resumo (#RESUMO)
-
 ## Entrada e saída de dados
 
 - Entrada de dados é usada para ler dados do usuário
