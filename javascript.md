@@ -120,9 +120,9 @@ let defaultName = username || 'Stranger'; // username se verdadeiro, 'Stranger' 
 ```
 
 ### Operador ternário
-(`condição ? a : b`)
-
+É uma forma curta de escrever uma estrutura condicional if/else em uma única linha no JavaScript.
 ```js
+// condicao ? valorSeVerdadeiro : valorSeFalso;
 isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lights!');
 ```
 
@@ -131,17 +131,21 @@ isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lig
 - É uma alternativa mais simples e eficiente para o if...else.
 
 ```
-switch (valor) {
-  case 1:
-    // código a ser executado se valor for 1
-    break
-  case 2:
-    // código a ser executado se valor for 2
-    break
+switch (expressao) {
+  case valor1:
+    // Código executado se expressao === valor1
+    break;
+  case valor2:
+    // Código executado se expressao === valor2
+    break;
   default:
-    // código a ser executado se valor não for 1 ou 2
+    // Código executado se nenhum dos casos anteriores for verdadeiro
 }
 ```
+- *`expressao`* valor ou variável a ser testada.
+- *`case valor`*: Uma opção de comparação. O JavaScript usa a comparação estrita (===), ou seja, o tipo do dado também precisa ser igual.
+- *`break;`*: Uma palavra-chave crucial. Ela encerra a execução do switch. Se você esquecer o break, o código continuará executando os próximos casos automaticamente (comportamento chamado de fall-through).
+- *`default`*:  É o caso padrão (opcional). Funciona como `else` final, sendo executado se nenhuma correspondência for encontrada.
 
 ## Funções
 (*functions*)
