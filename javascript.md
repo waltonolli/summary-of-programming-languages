@@ -1,17 +1,18 @@
 # GLOSSÁRIO BÁSICO DE JAVASCRIPT
 
-- Entrada e saída de dados
-- Variáveis
-- Tipos de dados
-- Operadores
-- Condições / fluxo de controle
-- Funções
-- Arrays / listas
-- Objetos
-- Propriedades
-- Métodos
-- Instância
-- Loop
+- Entrada e saída de dados (#ENTRADA E SAÍDA DE DADOS)
+- Variáveis (#VARIÁVEIS)
+- Tipos de dados (#TIPOS DE DADOS)
+- Operadores (#OPERADORES)
+- Condições / fluxo de controle (#CONDIÇÕES / FLUXO DE CONTROLE)
+- Funções (#FUNÇÕES)
+- Arrays / listas (#ARRAYS / LISTAS)
+- Objetos (#OBJETOS)
+- Propriedades (#PROPRIEDADES)
+- Métodos (#MÉTODOS)
+- Instância (#INSTÂNCIA)
+- Loop (#LOOP)
+- Resumo (#RESUMO)
 
 ## ENTRADA E SAÍDA DE DADOS
 
@@ -39,7 +40,7 @@ console.log(`Seu nome é ${nome} e tem ${idade} anos.`) // Interpolação de var
 ### Hoisting
 O JavaScript é uma linguagem de *hoisting*, ou seja, o código é interpretado antes de ser executado. Isso significa que variáveis e funções são declaradas antes de serem usadas. Isso é útil para evitar problemas de escopo e garantir que as variáveis estejam disponíveis quando você as usa. 
 
-### ESCOPO
+### Escopo
 Escopo é a região do código onde uma variável (ou função) pode ser acessada. O escopo é definido pela ordem em que as declarações são executadas.
 - **Escopo global**: variáveis e funções declaradas fora de qualquer função.
 - **Escopo de função**: variáveis e funções declaradas dentro de uma função.
