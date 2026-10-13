@@ -1,11 +1,11 @@
 # GLOSSÁRIO BÁSICO DE JAVASCRIPT
 
-- [Entrada e saída de dados] (#ENTRADA E SAÍDA DE DADOS)
-- Variáveis (#VARIÁVEIS)
-- Tipos de dados (#TIPOS DE DADOS)
-- Operadores (#OPERADORES)
-- Condições / fluxo de controle (#CONDIÇÕES / FLUXO DE CONTROLE)
-- Funções (#FUNÇÕES)
+- [Entrada e saída de dados] (#entrada-e-saída-de-dados)
+- [Variáveis] (#variaveis)
+- [Tipos de dados] (#tipos-de-dados)
+- [Operadores] (#operadores)
+- [Condições / fluxo de controle] (#condicoes)
+- [Funções] (#funcoes)
 - Arrays / listas (#ARRAYS / LISTAS)
 - Objetos (#OBJETOS)
 - Propriedades (#PROPRIEDADES)
@@ -14,7 +14,7 @@
 - Loop (#LOOP)
 - Resumo (#RESUMO)
 
-## ENTRADA E SAÍDA DE DADOS
+## Entrada e saída de dados
 
 - Entrada de dados é usada para ler dados do usuário
 - `prompt()` é usado para solicitar dados do usuário
@@ -25,7 +25,8 @@ const nome = prompt("Qual é o seu nome?")   // solicita o nome do usuário
 console.log(nome)                           // exibe o nome do usuário
 ```
 
-## VARIÁVEIS (*variables*)
+## Variáveis
+(*variables*)
 São "caixas" nomeadas que armazenam um valor na memória. 
 Em JavaScript, declaram-se com `let`, `const` ou `var`.
 - `let` é usado para declarar variáveis que podem ser alteradas.
@@ -56,7 +57,7 @@ Escopo é a região do código onde uma variável (ou função) pode ser acessad
 - É mais fácil manter um código com escopo bem definido, pois ele será modular.
 - Economiza memória porque as variáveis ​​com escopo de bloco deixarão de existir após a conclusão da execução do bloco.
 
-## TIPOS DE DADOS
+## Tipos de dados
 
 - String
 - Number
@@ -76,7 +77,7 @@ console.log(typeof nome);   // "string"
 console.log(typeof novaVariavel); // "boolean"
 ```
 
-## OPERADORES
+## Operadores
 
 | Operador | Descrição |
 | -------- | --------- |
