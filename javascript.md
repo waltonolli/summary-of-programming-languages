@@ -277,15 +277,72 @@ const array3 = [array1, array2];
 ### Acessando um elemento
 Para acessar um elemento de um array, utilize o índice do elemento. 
 O primeiro elemento do array tem índice 0, o segundo 1, e assim por diante.
+Para acessar um elemento, usamos o nome do array seguido do índice do elemento entre colchetes[].
 ```js
 array1[0]; // 1
-array1[1]; // 2
-array1[2]; // 3
+array2[1]; // dois
+array3[1]; // ["um", "dois", "três"]
 array1[3]; // 4
-array1[4]; // 5
+array3[1][2]; // três 
 ```
+Também podemos acessar caracteres individuais em uma string, utilizando o índice do caractere.
+```js
+const hello = 'Hello World';
+hello[0]; // 'H'
+hello[5]; // 'W'
+```
+
 ### Alterando Valor de um Elemento
-Para alterar o valor de um elemento de um array, utilize o índice do elemento.
+Com acesso a um elemento em um array, também podemos atualizar seu valor.
+```js
+let seasons = ['Spring', 'Summer', 'Fall', 'Winter'];
+seasons[0] = 'Autumn'; // atualiza o valor do primeiro elemento, substituindo o valor original.
+console.log(seasons); // ['Autumn', 'Summer', 'Fall', 'Winter']
+```
+
+Variáveis declaradas com a palavra-chave `const` não podem ser reatribuídas. No entanto, **elementos** em um array declarado com `const` permanecem **mutáveis**. Isso significa que podemos alterar o conteúdo de um `const` array, *mas não podemos reatribuir um novo array ou um valor diferente.*
+```js
+let condimentos = ["Ketchup", "Mostarda", "Pimenta", "Sal"]
+const utensilios = ["Faca", "Garfo", "Colher", "Colherinha"]
+condimentos[0] = "Salsa"; // Altera valor do primeiro elemento
+condimentos = ["Salsa"]; // Reatribui a array condimentos
+utensilios[0] = "Forno"; // Altera valor do primeiro elemento
+utensilios = ["Forno"]; // erro (não pode ser reatribuído porque é uma variavel const)
+```
+
+### A propridade length`
+Uma das propriedades incorporadas de um array é o length, e retorna o número de itens no array. Acessamos a propriedade `.length` assim como fazemos com strings.
+```js
+const metas = ["Manter um diário", "Fazer aulas de ingles", "Ler 2 livros ao mês"];
+const novaMeta = "Terminar faculdade";
+console.log(metas.length); // 3
+console.log(novaMeta.length); // 21
+```
+### O método push()
+O método `push()` adiciona um elemento ao final de um array.
+```js
+const metas = ["Manter um diário", "Fazer aulas de ingles", "Ler 2 livros ao mês"];
+metas.push("Terminar faculdade");
+console.log(metas); // ["Manter um diário", "Fazer aulas de ingles", "Ler 2 livros ao mês", "Terminar faculdade"]
+```
+### O método pop()
+O método `pop()` remove o último elemento de um array.
+```js
+const metas = ["Manter um diário", "Fazer aulas de ingles", "Ler 2 livros ao mês", "Terminar faculdade"]; 
+metas.pop();
+console.log(metas); // ["Manter um diário", "Fazer aulas de ingles", "Ler 2 livros ao mês"]
+```
+### Outros métodos de Array
+`.pop()` e `.push()` aleram o array no qual eles são chamados. No entanto, há momentos em que não queremos mutar o array original, e podemos usar *métodos de array sem mutação*. Certifique-se de verificar os Docs para entender o comportamento do método antes de usá-lo.
+- .join() - Concatena todos os elementos do array em uma string.
+- .slice() - Retorna um novo array com os elementos selecionados.
+- .splice() - Remove elementos do array.
+- .shift() - Remove o primeiro elemento do array.
+- .unshift() - Adiciona um elemento no início do array.
+- .concat() -  Retorna um novo array com os elementos do array original e os elementos passados como argumento.
+- .indexOf() - Busca o índice do primeiro elemento que corresponde ao valor buscado.
+
+## Arrays e Funções
 
 
 ## Objetos
