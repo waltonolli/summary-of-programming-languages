@@ -150,10 +150,8 @@ switch (expressao) {
 ## Funções
 (*functions*)
 
-São blocos de código reutilizáveis que executam uma tarefa, podendo receber valores (*parameters*) e devolver um resultado (*return*).
-Funções são um tipo de objeto, elas possuem propriedades e métodos.
-As funções são especiais porque podemos invocá-las, mas ainda assim podemos tratá-las como qualquer outro tipo de dado.
-- ``Parametros` são tratados como variáveis dentro da função.
+Funções São blocos de código reutilizáveis que executam uma tarefa, podendo receber valores (*parameters*) e devolver um resultado (*return*). São um tipo de objeto, elas possuem propriedades e métodos.Também são especiais porque podemos invocá-las, mas ainda assim podemos tratá-las como qualquer outro tipo de dado.
+- `Parametros` são tratados como variáveis dentro da função.
 - `Return` é o valor que a função devolve.
 - `Identificador` é o nome da função.
 - `Argumentos` são os valores que são passados para a função quando ela é chamada.
