@@ -151,6 +151,8 @@ switch (expressao) {
 (*functions*)
 
 São blocos de código reutilizáveis que executam uma tarefa, podendo receber valores (*parameters*) e devolver um resultado (*return*).
+Funções são um tipo de objeto, elas possuem propriedades e métodos.
+As funções são especiais porque podemos invocá-las, mas ainda assim podemos tratá-las como qualquer outro tipo de dado.
 - ``Parametros` são tratados como variáveis dentro da função.
 - `Return` é o valor que a função devolve.
 - `Identificador` é o nome da função.
@@ -268,10 +270,12 @@ Arrays podem armazenar qualquer tipo de dado, incluindo outros arrays.
 - Cada item dentro de um array é chamado de *elemento*.
 - Cada elemento é separado por vírgula.
 - Arrays são indexados a partir de 0.
+- Arrays podem ser aninhados, ou seja, podem conter outros arrays dentro deles.
 ```js
 const array1 = [1, 2, 3, 4, 5];
 const array2 = ["um", "dois", "três"];
-const array3 = [array1, array2];
+const array3 = [array1, array2]; // array aninhado
+const nestedArr = [1, 2, [3, 4]]; // array aninhado
 ```
 
 ### Acessando um elemento
@@ -283,6 +287,9 @@ array1[0]; // 1
 array2[1]; // dois
 array3[1]; // ["um", "dois", "três"]
 array1[3]; // 4
+```
+Podemos acessar os elementos dentro do array aninhado encadeando(_chaining_), adicionando mais notações entre colchetes com valores de índice.
+```js
 array3[1][2]; // três 
 ```
 Também podemos acessar caracteres individuais em uma string, utilizando o índice do caractere.
@@ -339,10 +346,126 @@ console.log(metas); // ["Manter um diário", "Fazer aulas de ingles", "Ler 2 liv
 - .splice() - Remove elementos do array.
 - .shift() - Remove o primeiro elemento do array.
 - .unshift() - Adiciona um elemento no início do array.
-- .concat() -  Retorna um novo array com os elementos do array original e os elementos passados como argumento.
+- .concat() -  Retorna um novo array com os elem. do array original e os elem. passados como argumento.
 - .indexOf() - Busca o índice do primeiro elemento que corresponde ao valor buscado.
 
-## Arrays e Funções
+### Arrays e Funções
+Arrays podem ser usados como parâmetros para funções.
+Quando passamos um array em uma função, se o array é mutado dentro da função, essa mudança também será mantida fora da função.
+**_pass-by-reference_** quando passamos para a função uma referência ao local onde a variável está armazenada na memória e alterando os dados lá.
+```js
+const conceito = ["Arrays", "podem", "ser", "mutados"];
+function alterarArr(arr) {
+  arr[3] = "MUTADOS";
+}
+alterarArr(conceito);
+console.log(conceito); // ["Arrays", "podem", "ser", "MUTADOS"]
+```
+
+
+## Loop (*loop*) ou Laço de Repetição
+Um *loop* é uma estrutura que repete um bloco de código (um conjunto de instruções), até que uma condição especificada, chamada condição de parada, seja atingida.
+- Você pode ouvir o termo genérico iterar (*iterate*) ao se referir a loops; iterar simplesmente significa "repetir".
+
+### O Loop For
+A for loop contém três expressões separadas por ; dentro dos parênteses:
+- Inicialização (*initialization*): inicia o loop e também pode ser usado para declarar variáveis.
+- Condição (*condition*): verifica se o loop deve continuar. Condição em relação à qual a variável iteradora é avaliada. Se falsa o loop é encerrado.
+- Incremento (*increment/afterthought*): instrução de iteração usada para atualizar a variável iteradora em cada iteração do loop.
+```js
+for (let contador = 0; contador <= 10; contador++) {
+  console.log(contador); // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+}
+```
+### Decremento (Looping Reverse)
+Defina a *variável iterador* para o **valor mais alto** desejado na expressão de inicialização. Em seguida, use o operador `--` para decrementar o valor da variável.
+```js
+for (let contador = 10; contador >= 0; contador--) {
+  console.log(contador); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+}
+```
+
+### Loop Através de um Array
+Um loop `for` pode ser usado para iterar sobre um array.
+- A *variável iteradora* é o *índice* do array.
+- Para percorrer cada elemento em um array, deve-se usar a propriedade `.length` do array em sua *condição*.
+```js
+const array = ["One", "Two", "Three", "Four", "Five"];
+for (let i = 0; i < array.length; i++) {
+  console.log(array[i]);
+}
+```
+
+### Loops for Aninhados
+Usado para comparar valores em arrays.
+```js
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [6, 7, 8, 9, 10];
+for (let i = 0; i < array1.length; i++) {
+  for (let j = 0; j < array2.length; j++) {
+    if (array1[i] === array2[j]) {
+      console.log(`Ambos os arrays contêm o valor ${array1[i]}`);
+    }
+  }
+}
+```
+
+## O Loop While
+A sintaxe do loo `while` é ideal quando *não sabemos* com antecedência quantas vezes o loop deve ser executado.
+Uma instrução `while` executa suas instruções enquanto uma condição é avaliada como verdadeira.
+- A *variável contadora* é declarada antes do loop.
+- `while (condição) {instrução com incremento ou decremento}`
+- O *incremento* ou *decremento* da variável é feito dentro do loop. Sem isso criamos um *loop infinito*.
+```js
+let contadorDois = 1;
+while (contadorDois <4) {
+  console.log(contadorDois);
+  contadorDois++;
+}
+```
+
+## O Loop Do...While
+Quando precisamos que o loop execute *pelo menos uma vez* antes da condição ser verificada, o loop `do...while` é mais adequado.
+A `do... while` instrução diz para fazer uma tarefa uma vez e depois continuar fazendo até que uma condição especificada não seja mais atendida.
+- `do...while` será executado pelo menos uma vez, independentemente de a condição ser avaliada como verdadeira ou não.
+- A variável contadora é declarada antes do loop.
+- O *incremento* ou *decremento* da variável é feito dentro do loop. Sem isso criamos um *loop infinito*.
+```js
+let contarString = "";
+let i = 0;
+do {
+  contarString = contarString + i;
+  i++;
+} while (i < 5);
+console.log(contarString); // 01234
+```
+
+## Break palavra-chave
+A palavra-chave `break` é usada para interromper um loop *antes* de ele terminar.
+A instrução `break` pode ser útil em loops por grandes estruturas de dados! Com *breaks*, podemos adicionar condições de testes além da condição de parada e sair do loop quando foram atendidas.
+```js
+for (let i = 0; i < 99; i++) {
+  if (i > 2 ) {
+     break;
+  }
+  console.log('Banana.');
+}
+console.log('Laranja! Eu quebrei o loop.');
+```
+
+Outros tipos: `for...of`, `for...in`.
+
+## Funções de Ordem Superior
+Funções de ordem superior (*higher-order functions*) são funções que aceitam outras funções como argumentos e/ou retornam outras funções como resultado/saída. São úteis para escrever código mais legível e reutilizável.
+
+Podemos atribuir funções a variáveis. O valor atribuido é o *nome da função sem parenteses*. Queremos atribuir o valor da própria função, não o valor que ela retorna quando invocada.
+```js
+const digaQueEstouFazendoUmImportanteTrabalho = () => {
+    console.log("I’m doing very important work!");
+};
+const ocupado = digaQueEstouFazendoUmImportanteTrabalho; // o valor atribuido é o nome da função sem parenteses.
+```
+
 
 
 ## Objetos
@@ -399,16 +522,7 @@ carro1 instanceof Carro; // true
 
 O verbo **instanciar** (*to instantiate*) significa criar uma instância, normalmente com a palavra-chave `new`.
 
-## Loop (*loop*) ou laço de repetição
-Estrutura que repete um bloco de código várias vezes, enquanto uma regra for atendida ou até percorrer todos os itens de uma coleção.
 
-```js
-for (let i = 0; i < 3; i++) {
-  console.log(i); // 0, 1, 2
-}
-```
-
-Outros tipos: `while`, `do...while`, `for...of`, `for...in`.
 
 
 
