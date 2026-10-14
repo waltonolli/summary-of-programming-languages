@@ -23,7 +23,9 @@ Em JavaScript, declaram-se com `let`, `const` ou `var`.
 ```js
 let idade = 30;      // pode ser alterada
 const nome = "Walkyria";       // não pode ser reatribuída
-console.log(`Seu nome é ${nome} e tem ${idade} anos.`) // Interpolação de variaveis em strings. Tamplete literal com `${}`
+
+// Interpolação de variáveis em strings. Tamplete literal com `${}`
+console.log(`Seu nome é ${nome} e tem ${idade} anos.`) 
 ```
 ### Hoisting
 O JavaScript é uma linguagem de *hoisting*, ou seja, o código é interpretado antes de ser executado. Isso significa que variáveis e funções são declaradas antes de serem usadas. Isso é útil para evitar problemas de escopo e garantir que as variáveis estejam disponíveis quando você as usa. 
@@ -35,11 +37,14 @@ Escopo é a região do código onde uma variável (ou função) pode ser acessad
 - **Escopo de função**: variáveis e funções declaradas dentro de uma função.
 - **Escopo de bloco**: variáveis e funções declaradas dentro de um bloco de código (qualque trecho declarado entre chaves {}).
 
-**Cadeia de escopo (Scope Chain)**: Cadeia de escopo é a ordem em que as declarações são executadas. Quando você usa uma variável, o JavaScript a procura primeiro no escopo atual; se não achar, sobe para o escopo de fora, e assim por diante até o global. Nunca o contrário: o escopo externo não enxerga o interno.
+**Cadeia de escopo (Scope Chain)**:  
+Cadeia de escopo é a ordem em que as declarações são executadas. Quando você usa uma variável, o JavaScript a procura primeiro no escopo atual; se não achar, sobe para o escopo de fora, e assim por diante até o global. Nunca o contrário: o escopo externo não enxerga o interno.
 
-**Poluição de escopo (Scope Pollution)**: A poluição do escopo ocorre quando temos muitas variáveis no espaço de nomes global, ou quando reutilizamos variáveis em diferentes escopos. A poluição de escopo dificulta acompanhar nossas diferentes variáveis e nos prepara para possíveis acidentes.
+**Poluição de escopo (Scope Pollution)**:  
+A poluição do escopo ocorre quando temos muitas variáveis no espaço de nomes global, ou quando reutilizamos variáveis em diferentes escopos. A poluição de escopo dificulta acompanhar nossas diferentes variáveis e nos prepara para possíveis acidentes.
 
-**Bom exemplo de escopo (Good Scope Example)**: Devemos seguir as melhores práticas para delimitar o escopo de nossas variáveis ​​da forma mais restrita possível, utilizando escopo de bloco.
+**Bom exemplo de escopo (Good Scope Example)**:  
+Devemos seguir as melhores práticas para delimitar o escopo de nossas variáveis ​​da forma mais restrita possível, utilizando escopo de bloco.
 - Tornará o código mais legível, já que os blocos o organizarão em seções distintas.
 - Torna o código mais compreensível, esclarecendo quais variáveis ​​estão associadas a diferentes partes do programa, em vez de ter que rastreá-las linha por linha!
 - É mais fácil manter um código com escopo bem definido, pois ele será modular.
@@ -150,7 +155,7 @@ switch (expressao) {
 ## Funções
 (*functions*)
 
-Funções São blocos de código reutilizáveis que executam uma tarefa, podendo receber valores (*parameters*) e devolver um resultado (*return*). São um tipo de objeto, elas possuem propriedades e métodos.Também são especiais porque podemos invocá-las, mas ainda assim podemos tratá-las como qualquer outro tipo de dado.
+Funções são blocos de código reutilizáveis que executam uma tarefa, podendo receber valores (*parameters*) e devolver um resultado (*return*). São um tipo de objeto, elas possuem propriedades e métodos.Também são especiais porque podemos invocá-las, mas ainda assim podemos tratá-las como qualquer outro tipo de dado.
 - `Parametros` são tratados como variáveis dentro da função.
 - `Return` é o valor que a função devolve.
 - `Identificador` é o nome da função.
@@ -456,12 +461,13 @@ Outros tipos: `for...of`, `for...in`.
 ## Funções de Ordem Superior
 Funções de ordem superior (*higher-order functions*) são funções que aceitam outras funções como argumentos e/ou retornam outras funções como resultado/saída. São úteis para escrever código mais legível e reutilizável.
 
-Podemos atribuir funções a variáveis. O valor atribuido é o *nome da função sem parenteses*. Queremos atribuir o valor da própria função, não o valor que ela retorna quando invocada.
+### Funções como dados
+Podemos atribuir funções a *variáveis*. O valor atribuido é o *nome da função sem parenteses*. Queremos atribuir o valor da própria função, não o valor que ela retorna quando invocada.
 ```js
 const digaQueEstouFazendoUmImportanteTrabalho = () => {
     console.log("I’m doing very important work!");
 };
-const ocupado = digaQueEstouFazendoUmImportanteTrabalho; // o valor atribuido é o nome da função sem parenteses.
+const ocupado = digaQueEstouFazendoUmImportanteTrabalho;
 ```
 
 
