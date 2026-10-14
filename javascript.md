@@ -408,7 +408,7 @@ for (let i = 0; i < array1.length; i++) {
 }
 ```
 
-## O Loop While
+### O Loop While
 A sintaxe do loo `while` é ideal quando *não sabemos* com antecedência quantas vezes o loop deve ser executado.
 Uma instrução `while` executa suas instruções enquanto uma condição é avaliada como verdadeira.
 - A *variável contadora* é declarada antes do loop.
@@ -422,7 +422,7 @@ while (contadorDois <4) {
 }
 ```
 
-## O Loop Do...While
+### O Loop Do...While
 Quando precisamos que o loop execute *pelo menos uma vez* antes da condição ser verificada, o loop `do...while` é mais adequado.
 A `do... while` instrução diz para fazer uma tarefa uma vez e depois continuar fazendo até que uma condição especificada não seja mais atendida.
 - `do...while` será executado pelo menos uma vez, independentemente de a condição ser avaliada como verdadeira ou não.
@@ -438,7 +438,7 @@ do {
 console.log(contarString); // 01234
 ```
 
-## Break palavra-chave
+## Break (*break*) palavra-chave
 A palavra-chave `break` é usada para interromper um loop *antes* de ele terminar.
 A instrução `break` pode ser útil em loops por grandes estruturas de dados! Com *breaks*, podemos adicionar condições de testes além da condição de parada e sair do loop quando foram atendidas.
 ```js
