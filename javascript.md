@@ -459,7 +459,24 @@ console.log('Laranja! Eu quebrei o loop.');
 Outros tipos: `for...of`, `for...in`.
 
 ## Funções de Ordem Superior
-Funções de ordem superior (*higher-order functions*) são funções que aceitam outras funções como argumentos e/ou retornam outras funções como resultado/saída. São úteis para escrever código mais legível e reutilizável.
+
+### Funções como parâmetros
+Parâmetro é um espaço reservado para os dados que são passados para uma função. Uma função de ordem superior (*higher-order functions*) é uma função que aceita outras funções como parâmetros, retorna uma função ou ambos. São úteis para escrever código mais legível e reutilizável.  
+- Chamamos as funções que são passadas como parâmetros de *funções de retorno* (*callback functions*).
+- Ao invocar uma função de ordem superior e passar outra função como argumento, passamos a própria função digitando o nome dela sem os parenteses.
+
+```js
+const funcaoDeOrdemSuperior = param => {
+  param();
+  return `Eu invoquei ${param} como uma função de retorno!`;
+}
+
+const outraFuncao = () => {
+  return "Estou sendo invocado pela função de ordem superior!";
+}
+
+funcaoDeOrdemSuperior(outraFuncao); 
+```
 
 ### Funções como dados
 Podemos atribuir funções a *variáveis*. O valor atribuido é o *nome da função sem parenteses*. Queremos atribuir o valor da própria função, não o valor que ela retorna quando invocada.
@@ -469,7 +486,6 @@ const digaQueEstouFazendoUmImportanteTrabalho = () => {
 };
 const ocupado = digaQueEstouFazendoUmImportanteTrabalho;
 ```
-
 
 
 ## Objetos
