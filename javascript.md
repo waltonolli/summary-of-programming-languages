@@ -723,6 +723,7 @@ cabrito.diet(); // printa undefined
 ### Privacidade (*privacy*) de propriedades
 Objetos podem ter propriedades que são privadas. Isso significa que elas não podem ser acessadas diretamente pelo código que não é o proprietário do objeto.  
 Para definir uma propriedade privada, usamos a notação `key: value` comum, mas adicionamos um `_` antes do nome da propriedade.  
+Os métodos `getter` e `setter` são utilizados para propriedades privadas. Os `getters` podem retornar o valor de propriedades internas, e os `setters` podem reatribuir valores de propriedades com segurança.
 > Algumas linguagens têm privacidade integrada para objetos, mas o JavaScript não possui esse recurso. Em vez disso, os desenvolvedores JavaScript seguem uma convenção comum de colocar um sublinhado (`_`) antes do nome de uma propriedade para indicar que ela não deve ser alterada. *Mesmo assim, ainda é possível reatribuir.*
 Exemplo:
 ```js
