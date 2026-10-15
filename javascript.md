@@ -59,6 +59,7 @@ Devemos seguir as melhores práticas para delimitar o escopo de nossas variávei
 - Object
 - Null
 - Undefined
+- Objects
 
 Para descobrir o tipo de um valor, utilize o operador `typeof()`:
 
@@ -490,30 +491,205 @@ const ocupado = digaQueEstouFazendoUmImportanteTrabalho;
 
 ## Objetos
 (*objects*)
-São coleções de propriedades e métodos agrupados sob um mesmo nome. Representam "coisas" (um usuário, um produto, uma data).
-
+São coleções de propriedades e métodos agrupados sob um mesmo nome. Representam "coisas" (um usuário, um produto, uma data). Usamos objetos para modelar coisas do mundo real, ou para construir as estruturas de dados que tornam a web possível.
+- Objetos literais são criados escrevendo o conteúdo entre chaves `{}`.
+- Objetos literais são *atribuidos (assigned)* a variáveis usadas para criar objetos.
 ```js
-const carro = { marca: "Fiat", ano: 2024, ligar() { /* ... */ } };
+const carro = { 
+  marca: "Fiat",
+  ano: 2024,
+  "Tipo de combustivel": "Gasolina"
+};
 ```
 
-## Propriedades (*properties*)
-São valores associados a um objeto, no formato chave-valor. Descrevem características dele.
-
+### Propriedades (*properties*)
+São o par `key: value` de um objeto, descrevem características dele.
 ```js
-const pessoa = { nome: "Ana", idade: 30 };
-pessoa.nome; // "Ana" → "nome" é uma propriedade
+const pessoa = { 
+  nome: "Ana", // propriedade1 key = nome value = Ana
+  idade: 30.   // propriedade2 key = idade value = 30
+};
 ```
+
+### Acessando Propriedades
+Para acessar propriedades de um objeto, usamos o `.` ou `[]` para acessar o valor de uma propriedade.
+Devemos usar `[]` ao acessar chaves que *não são nomes de identificador válidos* (por exemplo, chaves que começam com um número ou contêm espaços ou caracteres especiais). Sem a notação entre parênteses nessas situações, nosso código lançaria um erro.
+```js
+pessoa.nome; // objeto.propriedade 
+carro["Tipo de Combustivel"]; // objeto["propriedade"]
+```
+Com a notação entre colchetes `[]`, você também pode usar uma "variável" dentro dos `[]` para selecionar as chaves de um objeto. Isso pode ser especialmente útil ao trabalhar com funções:
+```js
+let retornaUmaPropriedade = (obj, prop) => obj[prop];
+retornaUmaPropriedade(pessoa, "nome"); 
+```
+
+### Modificando Propriedades (*proerties assignment*)
+Objetos são *mutáveis*. Mas não se pode reatribuir um objeto com variável `const`. Podemos usar a notação `.`ou `[]` junto com o operador `=` para atribuir um novo valor a uma propriedade. Se a propriedade já existir no objeto, o valor será atualizado. Caso contrário, uma nova propriedade será criada.
+```js
+pessoa.nome = "Ana Maria";
+carro["Tipo de Combustivel"] = "Diesel";
+
+const novaPessoa = {nome: "Ana Maria"};
+novaPessoa = {nome: "Joana"}; // TypeError: Assignment to constant variable.
+```
+
+### Deletando Propriedades (*properties deletion*)
+Para deletar uma propriedade de um objeto, usamos o operador `delete`.
+```js
+delete pessoa.nome;
+delete carro["Tipo de Combustivel"];
+```
+
+### Acessando Propriedades de Objetos
+Para acessar propriedades de um objeto, usamos o `.` ou `[]` para acessar o valor de uma propriedade.
 
 ## Métodos (*methods*)
-São funções que pertencem a um objeto. Descrevem ações que ele pode executar.
-
+Quando os dados armazenados em um objeto são uma função, chamamos isso de método.  
+Uma `propriedade` é o que um objeto *tem*, enquanto um `método` é o que um objeto *faz*.  
+Por exemplo: `console` é um objeto JavaScript global e `.log()` é um método nesse objeto. `Math`é objeto global e `.floor()`é o método.
+Podemos incluir métodos em objetos literais usando a notação `key: value` comum. Ou podemos usar a notação `key() {/*corpo do método*/}` para criar métodos.
 ```js
-const pessoa = {
-  nome: "Ana",
-  saudar() { return `Olá, ${this.nome}!`; } // saudar é um método
+const naveEspacial = {
+  invade: function() { // notação com chave e valor
+    console.log("Viemos dominar o planeta...");
+  }
 };
-pessoa.saudar();
 ```
+```js 
+const naveEspacial = {
+  invade() { // motação com a chave sendo a função
+    console.log("Viemos dominar o planeta...");
+  }
+};
+
+// chamando o método do objeto
+naveEspacial.invade();
+```
+
+## Objetos aninhados
+Objetos são frequentemente aninhados. Um objeto pode ter outro objeto como uma propriedade, que por sua vez pode ter uma propriedade que é um array de ainda mais objetos!
+EXEMPLO:
+```js
+const naveEspacial = {
+  telescopio: { 
+    anoConstrucao: 2018,
+    modelo: '91031-XLT',
+    distanciaFocal: 2032
+  },
+  tripulacao: {
+    capitao: {
+      nome: "Sandra",
+      formacao: "Engenharia de Computadores",
+      incentivarTeam() { console.log("Nós ganhamos esse trabalho!"); }
+    },
+  },
+  motor: {
+    modelo: "Nimbus2000"
+  },
+  nanoelectronica: {
+    computador: {
+      terabytes: 100,
+      monitores: "HD"
+    },
+    "back-up": {
+      bateria: "Lithium",
+      terabytes: 50
+    }
+  }
+};
+```
+Podemos encadear operadores para acessar propriedades aninhadas:
+```js
+naveEspacial.nanoelectronica.["back-up"].bateria;
+```
+
+### Passando Objetos como Referência (*Pass By Reference*)
+**Modificando Objetos com funções**  
+*Quando objetos são passados por referência*. Uma `variável atribuída` a um objeto em uma função como `argumento`, o computador interpreta o nome do `parâmetro` como apontando para o espaço na memória que contém esse objeto. Como resultado, funções que alteram propriedades do objeto realmente mudam o objeto permanentemente (*mesmo quando o objeto é atribuído a uma variável `const`*).
+```js
+const naveEspacial = {
+  planetaCasa: "Terra",
+  cor: "prata"
+};
+
+let pintarPlaneta = obj => {
+  obj.cor = "dourado glorioso"
+};
+
+pintarPlaneta(naveEspacial); // altera o objeto permanentemente
+naveEspacial.cor;
+```
+
+### Reatribuindo Objetos (*reassigning objects*)
+É possível reatribuir um objeto de uma variável `let`.
+```js
+let naveEspacial = {
+  planetaCasa: "Terra",
+  cor: "prata"
+};
+
+naveEspacial = {
+    identificador: false,
+    "tipo transporte": "voo"
+} // Reatribuição regular - funciona
+```
+*Mas não é possível reatribuir um objeto através de uma função, **passando o objeto como parâmetro***. Quando passamos um objeto para uma função, o parâmetro recebe uma cópia do “endereço” onde o objeto está guardado na memória. Assim, *o parâmetro e a variável original são duas variáveis diferentes*, mas apontam para o mesmo objeto. Por isso, se a função alterar o conteúdo do objeto, a mudança aparece também fora da função. Mas se a função trocar o parâmetro por um objeto novo, isso não afeta a variável original, que continua apontando para o objeto antigo.
+```js
+let naveEspacial = {
+  planetaCasa: "Terra",
+  cor: "prata"
+};
+
+let pintarPlaneta = obj => {
+  obj = {
+    identificador: false,
+    "tipo transporte": "voo"
+  }
+};
+
+pintarPlaneta(naveEspacial); // A tentativa de reatribuição não funciona.
+console.log(naveEspacial); // {planetaCasa: "Terra", cor: "prata"}
+```
+
+### Percorrendo Objetos em loop
+Laços (loops) são ferramentas de programação que repetem um bloco de código até que uma condição seja satisfeita. Iteramos através de arrays usando sua indexação numérica, mas os pares chaves-valor em objetos não são ordenados. Para iterar sobre objetos o JavaScreipt oferece a sintaxe `for...in`.  
+`for...in` executará um dado bloco de código para cada propriedade em um objeto.
+Sintaxe:
+```js
+for (let propriedade in objeto) {
+  // código a ser executado
+};
+```
+EXEMPLO:
+```js
+const naveEspacial = {
+  tripulacao: {
+    capitao: {
+      nome: "Sandra",
+      formacao: "Engenharia de Computadores",
+      incentivarTeam() { console.log("Nós ganhamos esse trabalho!"); }
+    },
+    engenheiro: {
+      nome: "João",
+      formacao: "Engenharia de Computadores",
+      incentivarTeam() { console.log("Nós ganhamos esse trabalho!"); }
+    },
+    piloto: {
+      nome: "Maria",
+      formacao: "Engenharia de Computadores",
+      incentivarTeam() { console.log("Nós ganhamos esse trabalho!"); }
+    }
+  }
+};
+
+for (let pessoa in naveEspacial.tripulacao) {
+  console.log(`${pessoa}: ${naveEspacial.tripulacao[pessoa].nome}`);
+}
+```
+
+
+
 
 ## Instância (*instance*)
 É um objeto concreto criado a partir de um molde (uma *class* ou uma função construtora). A classe define a estrutura (quais propriedades e métodos existem); a instância é uma "cópia" real dessa estrutura, com seus próprios valores. Cada instância é independente das outras.
