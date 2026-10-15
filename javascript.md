@@ -688,7 +688,7 @@ for (let pessoa in naveEspacial.tripulacao) {
 }
 ```
 
-## A palavra-chave `this`
+### A palavra-chave `this`
 *Usado em métodos* para acessar propriedades que fazem parte do objeto onde o método se encontra.  
 `this` é necessário porque *dentro do escopo do método*, não temos acesso automático a outras propriedades do objeto. Então, para chamar um objeto dentro de um método, é necessário usar a palavra-chave `this`.
 > *Arrow functions* inerentemente vinculam (*inherently bind*), um valor `this` à própria função que **não** é o objeto chamador. Nesses casos o valor `this` é um objeto que de escopo global, https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/this - `this` retorna undefined (ver exemplo).
@@ -720,7 +720,7 @@ cabrito.diet(); // printa undefined
 ```
 
 
-## Privacidade (*privacy*) de propriedades
+### Privacidade (*privacy*) de propriedades
 Objetos podem ter propriedades que são privadas. Isso significa que elas não podem ser acessadas diretamente pelo código que não é o proprietário do objeto.  
 Para definir uma propriedade privada, usamos a notação `key: value` comum, mas adicionamos um `_` antes do nome da propriedade.  
 > Algumas linguagens têm privacidade integrada para objetos, mas o JavaScript não possui esse recurso. Em vez disso, os desenvolvedores JavaScript seguem uma convenção comum de colocar um sublinhado (`_`) antes do nome de uma propriedade para indicar que ela não deve ser alterada. *Mesmo assim, ainda é possível reatribuir.*
