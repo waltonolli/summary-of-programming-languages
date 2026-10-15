@@ -491,7 +491,7 @@ const ocupado = digaQueEstouFazendoUmImportanteTrabalho;
 
 ## Objetos
 (*objects*)
-São coleções de propriedades e métodos agrupados sob um mesmo nome. Representam "coisas" (um usuário, um produto, uma data). Usamos objetos para modelar coisas do mundo real, ou para construir as estruturas de dados que tornam a web possível.
+São contêineres de propriedades e métodos agrupados sob um mesmo nome. Representam "coisas" (um usuário, um produto, uma data). Usamos objetos para modelar coisas do mundo real, ou para construir as estruturas de dados que tornam a web possível.
 - Objetos literais são criados escrevendo o conteúdo entre chaves `{}`.
 - Objetos literais são *atribuidos (assigned)* a variáveis usadas para criar objetos.
 ```js
@@ -544,7 +544,7 @@ delete carro["Tipo de Combustivel"];
 ### Acessando Propriedades de Objetos
 Para acessar propriedades de um objeto, usamos o `.` ou `[]` para acessar o valor de uma propriedade.
 
-## Métodos (*methods*)
+### Métodos (*methods*)
 Quando os dados armazenados em um objeto são uma função, chamamos isso de método.  
 Uma `propriedade` é o que um objeto *tem*, enquanto um `método` é o que um objeto *faz*.  
 Por exemplo: `console` é um objeto JavaScript global e `.log()` é um método nesse objeto. `Math`é objeto global e `.floor()`é o método.
@@ -567,7 +567,7 @@ const naveEspacial = {
 naveEspacial.invade();
 ```
 
-## Objetos aninhados
+### Objetos aninhados
 Objetos são frequentemente aninhados. Um objeto pode ter outro objeto como uma propriedade, que por sua vez pode ter uma propriedade que é um array de ainda mais objetos!
 EXEMPLO:
 ```js
@@ -688,6 +688,60 @@ for (let pessoa in naveEspacial.tripulacao) {
 }
 ```
 
+## A palavra-chave `this`
+*Usado em métodos* para acessar propriedades que fazem parte do objeto onde o método se encontra.  
+`this` é necessário porque *dentro do escopo do método*, não temos acesso automático a outras propriedades do objeto. Então, para chamar um objeto dentro de um método, é necessário usar a palavra-chave `this`.
+> *Arrow functions* inerentemente vinculam (*inherently bind*), um valor `this` à própria função que **não** é o objeto chamador. Nesses casos o valor `this` é um objeto que de escopo global, https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/this - `this` retorna undefined (ver exemplo).
+EXEMPLO:
+```js
+const cabrito = {
+  tipoDieta: "herbivoro",
+  fazSom() {
+    console.log("mééééééé");
+  }
+  diet() {
+    console.log(this.tipoDieta); // usa-se this para buscar dentro do objeto onde o método se encontra
+  }
+};
+
+cabrito.diet(); // herbivoro
+```
+```js
+const cabrito = {
+  tipoDieta: "herbivoro",
+  fazSom() {
+    console.log("mééééééé");
+  }
+  diet: () => {
+    console.log(this.tipoDieta);  // this usado com arrow function.
+  }
+};
+cabrito.diet(); // printa undefined
+```
+
+
+## Privacidade (*privacy*) de propriedades
+Objetos podem ter propriedades que são privadas. Isso significa que elas não podem ser acessadas diretamente pelo código que não é o proprietário do objeto.  
+Para definir uma propriedade privada, usamos a notação `key: value` comum, mas adicionamos um `_` antes do nome da propriedade.  
+> Algumas linguagens têm privacidade integrada para objetos, mas o JavaScript não possui esse recurso. Em vez disso, os desenvolvedores JavaScript seguem uma convenção comum de colocar um sublinhado (`_`) antes do nome de uma propriedade para indicar que ela não deve ser alterada. *Mesmo assim, ainda é possível reatribuir.*
+Exemplo:
+```js
+const pessoa = {
+  nome: "Ana",
+  _id: 123456,
+  __email: "ana@email.com"
+};
+
+pessoa.nome; // "Ana"
+pessoa._id; // 123456
+pessoa.__email; // "ana@email.com"
+```
+
+
+
+
+
+
 
 
 
@@ -724,13 +778,13 @@ O verbo **instanciar** (*to instantiate*) significa criar uma instância, normal
 
 ## Resumo
 
-| Português | Inglês | Ideia central |
+| **Português** | **Inglês** | **Ideia central** |
 |---|---|---|
-| Variável | *variable* | Guarda um valor |
-| Função | *function* | Executa uma tarefa reutilizável |
-| Objeto | *object* | Agrupa dados e ações |
-| Propriedade | *property* | Um dado dentro do objeto |
-| Método | *method* | Uma função dentro do objeto |
-| Instância | *instance* | Um objeto concreto criado a partir de uma classe |
-| Loop | *loop* | Repete código |
-| Condição | *condition* | Decide se o código executa |
+| **Variável** | *variable* | Guarda um valor |
+| **Função** | *function* | Executa uma tarefa reutilizável |
+| **Objeto** | *object* | Agrupa dados e ações |
+| **Propriedade** | *property* | Um dado dentro do objeto |
+| **Método** | *method* | Uma função dentro do objeto |
+| **Instância** | *instance* | Um objeto concreto criado a partir de uma classe |
+| **Loop** | *loop* | Repete código |
+| **Condição** | *condition* | Decide se o código executa |
