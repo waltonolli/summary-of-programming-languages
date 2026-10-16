@@ -916,7 +916,7 @@ console.log(bradford.behavior);  // 0
 ```
 
 ### Herança (*Inheritance*)
-Com a herança, podemos criar uma classe pai (também conhecida como *superclass*) com propriedades e métodos que várias classes filhas (também conhecidas como *subclasses*) compartilham. As classes filhas herdam as propriedades e métodos de sua classe pai.
+Com a herança, podemos criar uma classe pai (também conhecida como *superclass*) com propriedades e métodos que várias classes filhas (também conhecidas como *subclasses*) compartilham. As classes filhas herdam as propriedades e métodos de sua classe pai.  
 EXEMPLO DE CLASSE PAI:
 ```js
 class Animal {
@@ -941,7 +941,7 @@ class Animal {
 EXEMPLO DE CLASSE FILHA:
 - Cria-se a classe filha com a palavra-chave `extends` para estabelecer a herança entre classes.
 - Quando uma classe filha precisa declarar seu próprio construtor, utilizamos o **método** `super()`.
-- Quando uma propriedade possui um getter, a *boa prática* é acessá-la pelo nome do getter, sem o `_` (*underscore*).
+- Quando uma propriedade possui um getter, a *boa prática* é acessá-la pelo nome do getter, sem underscore (`_`).
 ```js
 class Cat extends Animal {
   constructor(name, usesLitter) {
@@ -952,7 +952,7 @@ class Cat extends Animal {
 
 const bryceCat = new Cat('Bryce', false); 
 bryceCat.incrementBehavior();
-console.log(bryceCat.behavior);  // 2 acessando a propriedade via getter
+console.log(bryceCat.behavior);  // 2 acessa a propriedade via getter
 ```
 
 
