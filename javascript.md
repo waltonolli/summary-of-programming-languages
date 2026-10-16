@@ -1,5 +1,18 @@
 # GLOSSÁRIO BÁSICO DE JAVASCRIPT
 
+## Conceitos importantes
+
+| **Português** | **Inglês** | **Ideia central** |
+|---|---|---|
+| **Variável** | *variable* | Guarda um valor |
+| **Função** | *function* | Executa uma tarefa reutilizável |
+| **Objeto** | *object* | Agrupa dados e ações |
+| **Propriedade** | *property* | Um dado dentro do objeto |
+| **Método** | *method* | Uma função dentro do objeto |
+| **Instância** | *instance* | Um objeto concreto criado a partir de uma classe |
+| **Loop** | *loop* | Repete código |
+| **Condição** | *condition* | Decide se o código executa |
+
 ## Entrada e saída de dados
 (*input and output*)
 
@@ -984,15 +997,3 @@ console.log(Animal.generateName()); // returns a name
 ```
 
 
-## Conceitos importantes
-
-| **Português** | **Inglês** | **Ideia central** |
-|---|---|---|
-| **Variável** | *variable* | Guarda um valor |
-| **Função** | *function* | Executa uma tarefa reutilizável |
-| **Objeto** | *object* | Agrupa dados e ações |
-| **Propriedade** | *property* | Um dado dentro do objeto |
-| **Método** | *method* | Uma função dentro do objeto |
-| **Instância** | *instance* | Um objeto concreto criado a partir de uma classe |
-| **Loop** | *loop* | Repete código |
-| **Condição** | *condition* | Decide se o código executa |
