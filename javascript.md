@@ -719,10 +719,8 @@ const cabrito = {
 cabrito.diet(); // printa undefined
 ```
 
-
 ### Privacidade (*privacy*) de propriedades
-Objetos podem ter propriedades que são privadas. Isso significa que elas não podem ser acessadas diretamente pelo código que não é o proprietário do objeto.  
-Para definir uma propriedade privada, usamos a notação `key: value` comum, mas adicionamos um `_` antes do nome da propriedade.  
+Objetos podem ter propriedades que são privadas. Isso significa que elas não podem ser acessadas diretamente pelo código que não é o proprietário do objeto. Para definir uma propriedade privada, usamos a notação `key: value` comum, mas adicionamos um `_` antes do nome da propriedade.  
 Os métodos `getter` e `setter` são utilizados para propriedades privadas. Os `getters` podem retornar o valor de propriedades internas, e os `setters` podem reatribuir valores de propriedades com segurança.
 > Algumas linguagens têm privacidade integrada para objetos, mas o JavaScript não possui esse recurso. Em vez disso, os desenvolvedores JavaScript seguem uma convenção comum de colocar um sublinhado (`_`) antes do nome de uma propriedade para indicar que ela não deve ser alterada. *Mesmo assim, ainda é possível reatribuir.*
 Exemplo:
@@ -738,7 +736,108 @@ pessoa._id; // 123456
 pessoa.__email; // "ana@email.com"
 ```
 
+### Getters e Setters
+*Getters* e *setters* são propriedades de acesso (accessor properties): em vez de guardarem um valor diretamente, elas executam uma função quando você *lê* (`get`) ou *escreve* (`set`) a propriedade. Para quem usa o objeto, a sintaxe continua parecendo um acesso comum (`obj.nome`), *sem parênteses*.
+- `get` define a função executada ao *ler* a propriedade e deve ter *zero* parâmetros.
+- `set` define a função executada ao *atribuir* um valor à propriedade e deve ter exatamente *um* parâmetro.
+- Se uma propriedade tiver apenas `get`, ela é *somente leitura*: a atribuição é ignorada (ou lança `TypeError` em modo estrito).
+- Se tiver apenas `set`, ler a propriedade retorna `undefined`.
+- Ambos são usados sem `()`: `obj.nome` e `obj.nome = valor`.
+- `get`é muito utilizado sem `set`, pois é comum que você *não* precise modificar o valor de uma propriedade.
+```js
+const pessoa = {
+  nome: "Ana",
+  sobrenome: "Silva",
 
+  // getter: executado ao LER pessoa.nomeCompleto
+  get nomeCompleto() {
+    return `${this.nome} ${this.sobrenome}`;
+  },
+
+  // setter: executado ao ATRIBUIR pessoa.nomeCompleto = ...
+  set nomeCompleto(valor) {
+    const [nome, ...resto] = valor.split(" ");
+    this.nome = nome;
+    this.sobrenome = resto.join(" ");
+  }
+};
+
+console.log(pessoa.nomeCompleto);      // "Ana Silva"
+pessoa.nomeCompleto = "Maria Souza Lima";
+console.log(pessoa.nome);              // "Maria"
+console.log(pessoa.sobrenome);         // "Souza Lima"
+```
+
+### Funções de fabrica (*Factory Functions*)
+Uma função de fábrica é uma função que retorna um objeto e pode ser **reutilizada** para criar várias instâncias de objetos. As funções de fábrica também podem ter parâmetros, permitindo personalizar o objeto que é devolvido.
+```js
+const fabricaDeMonstros = (nome, idade, fonteEnergia, fraseEfeito ) => {
+  return {
+    nome: nome,
+    idade:idade,
+    fonteEnergia: fonteEnergia,
+    assustar() {
+      console.log(fraseEfeito);
+    }
+  }
+};
+
+const fantasma = fabricaDeMonstros("Drácula", 251, "sangue", "AARRRGH!");
+fantasma.assustar(); // "AARRRGH!"
+```
+## Desestruturação (*Destructuring*)
+Simplifica o trabalho com *arrays* e *objetos* complexos, reduzindo a quantidade de código que você precisa escrever. 
+
+### Desestruturação em objetos
+Podemos usar a abreviação do valor da propriedade quando a chave e a variável passada como o valor compartilham o mesmo nome. O exemplo a seguir funciona exatamente igual ao da função de fábrica acima:
+```js
+const fabricaDeMonstros = (nome, idade , fonteEnergia, fraseEfeito ) => {
+  return {
+    nome,
+    idade,
+    fonteEnergia,
+    assustar() {
+      console.log(fraseEfeito);
+    }
+  }
+};
+```
+Muitas vezes queremos extrair pares chave-valor de objetos e salvá-los como variáveis. Se quiséssemos extrair a propriedade da `fonteEnergia` como uma variável, poderíamos usar o seguinte código:
+```js
+const fonteEnergia = fantasma.fonteEnergia;
+console.log(fonteEnergia); // "sangue"
+```
+No entanto, também podemos aproveitar uma técnica de desestruturação chamada atribuição desestruturada para nos poupar algumas teclas. Na atribuição desestruturada, criamos uma variável com o nome da chave de um objeto entre colchetes `{}` e atribuímos (`=`) a ela o objeto. Conforme abaixo:
+```js
+const {fonteEnergia} = fantasma;
+console.log(fonteEnergia); // "sangue"
+```
+### Métodos Integrados de Objetos (*Built-in Object Methods*)
+Objetos têm métodos integrados que podem ser usados diretamente em um objeto.  
+Temos acesso a métodos de instância de objeto como: `.hasOwnProperty()` e `.valueOf()`. Também existem métodos úteis de classes de objeto, como `Object.assign()`, `Object.entries()` e `Object.keys()`. Para uma lista completa, navegue por: [MDN’s object instance documentation](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object).
+```js
+const robo = {
+  modelo: "BRA-1000",
+  movel: true,
+  sensivel: false,
+  armadura: "metal",
+  nivelEnergia: 75
+};
+
+const chavesDoRobo = Object.keys(robo);
+console.log(chavesDoRobo); 
+
+const entradasDoRobo = Object.entries(robo);
+console.log(entradasDoRobo); 
+
+const novoRobo = Object.assign({
+  armaLaser: true,
+  reconheceVoz: true
+}, robo);
+
+console.log(novoRobo); 
+console.log(robo); 
+```
 
 
 
@@ -777,7 +876,7 @@ O verbo **instanciar** (*to instantiate*) significa criar uma instância, normal
 
 
 
-## Resumo
+## Conceitos importantes
 
 | **Português** | **Inglês** | **Ideia central** |
 |---|---|---|
