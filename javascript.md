@@ -558,7 +558,7 @@ const naveEspacial = {
 ```
 ```js 
 const naveEspacial = {
-  invade() { // motação com a chave sendo a função
+  invade() { // notação com a chave sendo a função
     console.log("Viemos dominar o planeta...");
   }
 };
@@ -722,7 +722,14 @@ cabrito.diet(); // printa undefined
 ### Privacidade (*privacy*) de propriedades
 Objetos podem ter propriedades que são privadas. Isso significa que elas não podem ser acessadas diretamente pelo código que não é o proprietário do objeto. Para definir uma propriedade privada, usamos a notação `key: value` comum, mas adicionamos um `_` antes do nome da propriedade.  
 Os métodos `getter` e `setter` são utilizados para propriedades privadas. Os `getters` podem retornar o valor de propriedades internas, e os `setters` podem reatribuir valores de propriedades com segurança.
-> Algumas linguagens têm privacidade integrada para objetos, mas o JavaScript não possui esse recurso. Em vez disso, os desenvolvedores JavaScript seguem uma convenção comum de colocar um sublinhado (`_`) antes do nome de uma propriedade para indicar que ela não deve ser alterada. *Mesmo assim, ainda é possível reatribuir.*
+> Algumas linguagens têm privacidade integrada para objetos, mas o JavaScript não possui esse recurso. Em vez disso, os desenvolvedores JavaScript seguem uma convenção comum de colocar um sublinhado (`_`) antes do nome de uma propriedade para indicar que ela não deve ser alterada. *Mesmo assim, ainda é possível reatribuir.*  
+**Uma propriedade é uma boa candidata para ser privada se:**
+1. Seu valor precisa passar por validações antes de ser alterado.
+2. Sua alteração direta pode deixar o objeto em um estado inconsistente.
+3. Ela representa um detalhe interno de implementação.
+4. Ela não deveria ser modificada diretamente por outras partes do programa.
+5. Seu valor precisa ser controlado por métodos específicos.
+
 Exemplo:
 ```js
 const pessoa = {
@@ -736,13 +743,12 @@ pessoa._id; // 123456
 pessoa.__email; // "ana@email.com"
 ```
 
-### Getters e Setters
-*Getters* e *setters* são propriedades de acesso (accessor properties): em vez de guardarem um valor diretamente, elas executam uma função quando você *lê* (`get`) ou *escreve* (`set`) a propriedade. Para quem usa o objeto, a sintaxe continua parecendo um acesso comum (`obj.nome`), *sem parênteses*.
-- `get` define a função executada ao *ler* a propriedade e deve ter *zero* parâmetros.
-- `set` define a função executada ao *atribuir* um valor à propriedade e deve ter exatamente *um* parâmetro.
+### Getters e Setters em Objetos
+Getters e setters são métodos especiais que permitem controlar a **leitura e a alteração das propriedades** de um objeto. A principal diferença em relação aos métodos comuns é que getters e setters são acessados como propriedades, sem utilizar parênteses `()`.
+- Getter (`get`): permite obter ou calcular o valor de uma propriedade.
+- Setter (`set`): permite definir ou modificar o valor de uma propriedade, podendo realizar validações antes da alteração.
 - Se uma propriedade tiver apenas `get`, ela é *somente leitura*: a atribuição é ignorada (ou lança `TypeError` em modo estrito).
 - Se tiver apenas `set`, ler a propriedade retorna `undefined`.
-- Ambos são usados sem `()`: `obj.nome` e `obj.nome = valor`.
 - `get`é muito utilizado sem `set`, pois é comum que você *não* precise modificar o valor de uma propriedade.
 ```js
 const pessoa = {
@@ -839,41 +845,115 @@ console.log(novoRobo);
 console.log(robo); 
 ```
 
-
-
-
-
-
-
-## Instância (*instance*)
-É um objeto concreto criado a partir de um molde (uma *class* ou uma função construtora). A classe define a estrutura (quais propriedades e métodos existem); a instância é uma "cópia" real dessa estrutura, com seus próprios valores. Cada instância é independente das outras.
-
-Analogia: a classe é a planta de uma casa; cada casa construída a partir dela é uma instância.
-
+## Classes (*class*)
+Classes são templates para objetos.
+- Use a palavra-chave `class` para criar uma classe.
+- Adicione *sempre* um método chamado `construtor()`. Só pode existir um construtor por classe.
+- Os parametros do construtor são chamados *parametros de instância*. Recebem o valor informado na criação de um objeto.
+- A palavra-chave `this` é usada para acessar propriedades da instância.
+- Em classes não utilizamos virgula (`,`) para separar métodos.
+```js
+class ClassName {
+  constructor() {...}
+}
+```
+EXEMPLO
 ```js
 class Carro {
   constructor(marca, ano) {
-    this.marca = marca;   // propriedade
-    this.ano = ano;       // propriedade
+    this.marca = marca;   // propriedade da instância
+    this.ano = ano;       // propriedade da instância
   }
   ligar() {               // método
     return `${this.marca} ligado!`;
   }
 }
-
-const carro1 = new Carro("Fiat", 2024);   // carro1 é uma instância de Carro
-const carro2 = new Carro("Ford", 2020);   // carro2 é outra instância
-
-carro1.ligar(); // "Fiat ligado!"
-carro2.ligar(); // "Ford ligado!"
-
-carro1 instanceof Carro; // true
 ```
 
-O verbo **instanciar** (*to instantiate*) significa criar uma instância, normalmente com a palavra-chave `new`.
+### Instância (*instance*)
+É um objeto criado a partir de uma *classe* (molde, ou função construtora).  
+- A classe define a estrutura (quais propriedades e métodos existem);
+- A instância é o objeto criado através da classe, com seus próprios valores.
+- Cria-se uma instância, normalmente com a palavra-chave `new`.
 
+```js
+const carro1 = new Carro("Fiat", 2024);   // INSTÂNCIA carro1
+const carro2 = new Carro("Ford", 2020);   // INSTÂNCIA carro2
+```
 
+### Métodos, Getters e Setters de Instâncias
+A sintaxe dos métodos e getters de classe é a mesma que a dos objetos, **_exceto que não podemos incluir vírgulas entre eles._**
+```js
+class Dog {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+    
+  get name() {
+    return this._name;
+  }
+  
+  get behavior() {
+    return this._behavior;
+  }
+  
+  incrementBehavior() {
+    this._behavior++;
+  }
+}
 
+const halley = new Dog('Halley');
+console.log(halley.name);  // "Halley"
+
+let nikko = new Dog('Nikko');
+
+nikko.incrementBehavior();
+console.log(nikko.behavior);  // 1
+
+let bradford = new Dog('Bradford');
+console.log(bradford.behavior);  // 0
+```
+
+### Herança (*Inheritance*)
+Com a herança, podemos criar uma classe pai (também conhecida como *superclass*) com propriedades e métodos que várias classes filhas (também conhecidas como *subclasses*) compartilham. As classes filhas herdam as propriedades e métodos de sua classe pai.
+EXEMPLO DE CLASSE PAI:
+```js
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+    
+  get name() {
+    return this._name;
+  }
+  
+  get behavior() {
+    return this._behavior;
+  }   
+    
+  incrementBehavior() {
+    this._behavior++;
+  }
+} 
+```
+EXEMPLO DE CLASSE FILHA:
+- Cria-se a classe filha com a palavra-chave `extends` para estabelecer a herança entre classes.
+- Quando uma classe filha precisa declarar seu próprio construtor, utilizamos o **método** `super()`.
+- Quando uma propriedade possui um getter, a *boa prática* é acessá-la pelo nome do getter, sem o `_` (*underscore*).
+```js
+class Cat extends Animal {
+  constructor(name, usesLitter) {
+    super(name);  // chama o construtor da classe pai
+    this._usesLitter = usesLitter; 
+  }
+}
+
+const bryceCat = new Cat('Bryce', false); 
+bryceCat.incrementBehavior();
+console.log(bryceCat.behavior);  // 2 acessando a propriedade via getter
+```
 
 
 ## Conceitos importantes
