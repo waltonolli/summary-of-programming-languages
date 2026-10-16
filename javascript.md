@@ -917,6 +917,7 @@ console.log(bradford.behavior);  // 0
 
 ### Herança (*Inheritance*)
 Com a herança, podemos criar uma classe pai (também conhecida como *superclass*) com propriedades e métodos que várias classes filhas (também conhecidas como *subclasses*) compartilham. As classes filhas herdam as propriedades e métodos de sua classe pai.  
+  
 EXEMPLO DE CLASSE PAI:
 ```js
 class Animal {
@@ -945,14 +946,40 @@ EXEMPLO DE CLASSE FILHA:
 ```js
 class Cat extends Animal {
   constructor(name, usesLitter) {
-    super(name);  // chama o construtor da classe pai
-    this._usesLitter = usesLitter; 
+    super(name);
+    this._usesLitter = usesLitter;
+  }
+    
+  get usesLitter() {
+    return this._usesLitter;
   }
 }
 
 const bryceCat = new Cat('Bryce', false); 
 bryceCat.incrementBehavior();
 console.log(bryceCat.behavior);  // 2 acessa a propriedade via getter
+```
+
+### Métodos Estáticos (*Static Methods*)
+Métodos estáticos são métodos que *pertencem à classe, e não aos objetos (instâncias)* criados a partir dela. Isso significa que você pode chamar um método estático diretamente pelo nome da classe, sem precisar criar um objeto usando `new`.
+- Para um método estático, use a palavra-chave `static`.
+- Não é criado um objeto para chamar um método estático.
+- Você chama o *método estático* com `ClassName.methodName()`.
+```js
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+    
+  static generateName() {
+    const names = ['Angel', 'Spike', 'Buffy', 'Willow', 'Tara'];
+    const randomNumber = Math.floor(Math.random()*5);
+    return names[randomNumber];
+  }
+} 
+
+console.log(Animal.generateName()); // returns a name
 ```
 
 
