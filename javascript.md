@@ -965,6 +965,7 @@ Métodos estáticos são métodos que *pertencem à classe, e não aos objetos (
 - Para um método estático, use a palavra-chave `static`.
 - Não é criado um objeto para chamar um método estático.
 - Você chama o *método estático* com `ClassName.methodName()`.
+- **Não** pode ser acessado a partir de instâncias.
 ```js
 class Animal {
   constructor(name) {
