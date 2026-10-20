@@ -22,6 +22,6 @@ Em 2009, o ambiente de execução Node.js foi criado com o objetivo de executar 
 O ambiente de execução do Node.js oferece aos aplicativos de back-end acesso a uma variedade de recursos indisponíveis em um navegador, como acesso ao sistema de arquivos, banco de dados e rede do servidor.
 
 ## Módulos
-Módulos são trechos de código reutilizáveis ​​em um arquivo que podem ser exportados e importados para uso em outro arquivo. Um programa modular é aquele cujos componentes podem ser separados, usados ​​individualmente e recombinados para criar um sistema complexo.
-[diagrama de um módulo](https://static-assets.codecademy.com/Courses/Learn-JavaScript/Modules/modular-program-diagram.svg)
+Módulos são trechos de código reutilizáveis ​​em um arquivo que podem ser exportados e importados para uso em outro arquivo. Um programa modular é aquele cujos componentes podem ser separados, usados ​​individualmente e recombinados para criar um sistema complexo.  
+![diagrama de um módulo](https://static-assets.codecademy.com/Courses/Learn-JavaScript/Modules/modular-program-diagram.svg)
 
