@@ -1,3 +1,4 @@
+
 # GLOSSÁRIO BÁSICO DE JAVASCRIPT
 
 ## Conceitos importantes
