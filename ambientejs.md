@@ -40,24 +40,6 @@ O módulo ES6 é um recurso que permite que você escreva código JavaScript que
 
 ### Sintaxe de Exportação Nomeada do ES6
 Um módulo deve estar inteiramente contido dentro de um arquivo para que possa ser importado. Para exportar um módulo, deve-se utilizar a sintaxe de exportação nomeada do ES6: `export { nome1, nome2, nome3 };`, o nome do módulo é o nome do arquivo. 
-
-### Sintaxe de importação nomeada do ES6
-A sintaxe ES6 para **importar** recursos nomeados de módulos é semelhante à seguinte `export` sintaxe: `import { nome1, nome2, nome3 } from "./nome-do-arquivo.js";`. 
-> **valores individuais** podem ser exportados como *exportações nomeadas* simplesmente colocando a palavra-chave `export` antes da declaração da variável.
-
-### Exemplo de módulo ES6 com DOM
-```js
-/* secret-messages.js */
-import { toggleHiddenElement, changeToFunkyColor } from '../modules/dom-functions.js';
-
-const buttonElement = document.getElementById('secret-button');
-const pElement = document.getElementById('secret-p');
-
-buttonElement.addEventListener('click', () => {
-  toggleHiddenElement(pElement);
-  changeToFunkyColor(buttonElement);
-});
-```
 ```js
 /* dom-functions.js */
 const toggleHiddenElement = (domElement) => {
@@ -78,12 +60,25 @@ const changeToFunkyColor = (domElement) => {
 
 export { toggleHiddenElement, changeToFunkyColor };
 ```
+### Sintaxe de importação nomeada do ES6
+A sintaxe ES6 para **importar** recursos nomeados de módulos é semelhante à seguinte `export` sintaxe: `import { nome1, nome2, nome3 } from "./nome-do-arquivo.js";`.  
+```js
+/* secret-messages.js */
+import { toggleHiddenElement, changeToFunkyColor } from '../modules/dom-functions.js';
+
+const buttonElement = document.getElementById('secret-button');
+const pElement = document.getElementById('secret-p');
+
+buttonElement.addEventListener('click', () => {
+  toggleHiddenElement(pElement);
+  changeToFunkyColor(buttonElement);
+});
+```
 - Em `secret-messages.js`, as funções `toggleHiddenElement` e `changeToFunkyColor` são importadas do módulo `dom-functions.js` usando o `import` e o nome do módulo.
 - Usando DOM API, objetos DOM (Document Object Model) são criados para referenciar o botão e o parágrafo via `document`. Esses objetos são armazenados nas variáveis `buttonElement` e `pElement`.
 - Um `event listener` é adicionado ao `buttonElement` para "ouvir" os eventos de `'click'` e responder chamando `toggleHiddenElement()` com `pElement` como argumento.
 - Em `dom-functions.js` a função `toggleHiddenElement` é declarada. Aceita um elemento DOM `domElement`como entrada e irá mostrar ou ocultar esse elemento dependendo do seu valor atual em de `style.display`.
-- A função `changeToFunkyColor` é declarada. Aceita um elemento DOM `domElement`como entrada e irá alterar o valor de `style.background` para um valor aleatório.  
-  
+- A função `changeToFunkyColor` é declarada. Aceita um elemento DOM `domElement`como entrada e irá alterar o valor de `style.background` para um valor aleatório. 
 Além da sintaxe acima, na qual todas as *exportações nomeadas* são listadas juntas, **valores individuais** podem ser exportados como *exportações nomeadas* simplesmente colocando a palavra-chave `export` antes da declaração da variável. Como no exemplo abaixo:
 ```js
 /* dom-functions.js */
@@ -94,8 +89,8 @@ export const toggleHiddenElement = (domElement) => {
 export const changeToFunkyColor = (domElement) => {
   // logic omitted...
 }
-```
-
+``` 
+  
 ## Ambiente de execução do Node.js (módulos CommonJS)
 Em 2009, o ambiente de execução Node.js foi criado com o objetivo de executar código JavaScript sem um navegador, permitindo assim que os programadores criassem aplicações completas (front-end e back-end) usando apenas a linguagem JavaScript. O Node.js é executado no servidor e não no navegador.  
 O ambiente de execução do Node.js oferece aos aplicativos de back-end acesso a uma variedade de recursos indisponíveis em um navegador, como acesso ao sistema de arquivos, banco de dados e rede do servidor.
