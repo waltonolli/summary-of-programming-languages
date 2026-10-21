@@ -5,6 +5,9 @@ O ambiente de execução é onde seu programa será executado. Ele determina qua
 Módulos são trechos de código reutilizáveis ​​em um arquivo que podem ser exportados e importados para uso em outro arquivo. Um programa modular é aquele cujos componentes podem ser separados, usados ​​individualmente e recombinados para criar um sistema complexo.  
 <img src="https://static-assets.codecademy.com/Courses/Learn-JavaScript/Modules/modular-program-diagram.svg" alt="diagrama de um módulo" width="300">
 
+## DOM (Document Object Model)
+O *Document Object Model (DOM)* é um modelo lógico que estrutura o documento HTML como um objeto. O DOM é uma API implementado por navegadores para permitir que o JavaScript *acesse, modifique e atualize* a estrutura de uma página web em HTML de forma organizada.
+
 ## Ambiente de execução de um navegador (módulo ES6)
 O Ambiente mais comum onde o JavaScript é executado é no navegador. O JavaScript é interpretado pelo navegador, o que significa que ele é executado na memória do navegador. Salve um arquivo com a extensão `.html`, insira o código JavaScript no corpo do arquivo e salve o arquivo. Abra o arquivo no navegador para ver o resultado.
 - o conteúdo javascript é colocado dentro de um elemento `<script>` no arquivo html.
@@ -19,9 +22,6 @@ Exemplo: meu_site.html
   </body>
 </html>
 ```
-
-## DOM (Document Object Model)
-O *Document Object Model (DOM)* é um modelo lógico que estrutura o documento HTML como um objeto. O DOM é uma API implementado por navegadores para permitir que o JavaScript *acesse, modifique e atualize* a estrutura de uma página web em HTML de forma organizada
 
 ## Implementando módulos ES6 no Browser (navegador)
 O módulo ES6 é um recurso que permite que você escreva código JavaScript que pode ser usado em diferentes arquivos. Ao criar um site, é preciso criar um *arquivo HTML*, um *arquivo CSS* e um *arquivo JavaScript*. O arquivo HTML é usado para criar a estrutura da página, o arquivo CSS é usado para estilizar a página e o arquivo JavaScript é usado para adicionar interatividade e comportamento à página.  
