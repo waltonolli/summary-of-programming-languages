@@ -93,7 +93,36 @@ export const changeToFunkyColor = (domElement) => {
   // logic omitted...
 }
 ``` 
-  
+### Renomeando importações para evitar conflitos de nomes
+Quando você importa módulos, eles podem ter nomes de variáveis e funções que se sobrepõem. Para evitar esses conflitos, você pode usar o operador `as` para renomear as variáveis ou funções importadas. Sintaxe: `import { recursoExportado as recursoRenomeado } from "./nome-do-arquivo.js" `. Por exemplo:
+```js
+/* inside greeterEspanol.js */
+const greet = () => {
+  console.log('hola');
+}
+export { greet };
+
+/* inside greeterFrancais.js */
+const greet = () => {
+  console.log('bonjour');
+}
+export { greet };
+```
+Digamos que você queira usar cada uma dessas funções em um programa chamado main.js, que simula uma conversa entre um falante de espanhol e um falante de francês. 
+```js
+import { greet } from 'greeterEspanol.js';
+import { greet } from 'greeterFrancais.js';
+```
+O código acima gerará um erro na linha 2 devido ao fato de o identificador `greet` já ter sido definido na linha 1. Para resolver esse problema, é usado o operador `as` para renomear a variável ou função importada.
+```js
+/* main.js */
+import { greet as greetEspanol } from 'greeterEspanol.js';
+import { greet as greetFrancais } from 'greeterFrancais.js';
+
+greetEspanol(); // Prints: hola
+greetFrancais(); // Prints: bonjour
+```
+
 ## Ambiente de execução do Node.js (módulos CommonJS)
 Em 2009, o ambiente de execução Node.js foi criado com o objetivo de executar código JavaScript sem um navegador, permitindo assim que os programadores criassem aplicações completas (front-end e back-end) usando apenas a linguagem JavaScript. O Node.js é executado no servidor e não no navegador.  
 O ambiente de execução do Node.js oferece aos aplicativos de back-end acesso a uma variedade de recursos indisponíveis em um navegador, como acesso ao sistema de arquivos, banco de dados e rede do servidor.
