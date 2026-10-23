@@ -59,7 +59,7 @@ document.body.innerHTML = '<h1>Hello World</h1>';
 ```
 
 
-### Seletores CSS
+## Seletores CSS
 
 Com `document.body` acessamos o elemento `<body>` com a palavra-chave `document`. Mas para acessar um elemento específico sem acessar todo o elemento `<body>`? O DOM nos permite usar *seletores CSS* para selecionar elementos específicos.
 
@@ -82,7 +82,7 @@ document.getElementsByClassName('student')[0].innerHTML = 'Not yet registered';
 document.getElementsByTagName('li')[1].innerHTML = 'Cedric Diggory`;
 ```
 
-### Estilizando Elementos
+## Estilizando Elementos
 
 Para estilizar um elemento, precisamos acessar o seu *atributo* `style`. O atributo `.style` de um elemento DOM fornece acesso ao estilo inline dessa tag HTML. A sintaxe segue um formato `element.style.property`, com a propriedade representando uma propriedade CSS. Diferente do CSS, a propriedade DOM `.style` não implementa um *hífen (-)*, como `background-color`, mas sim uma *notação camelCase*, `backgroundColor`. Confira mais em [W3 Reference on the HTML DOM style object](https://www.w3schools.com/jsref/dom_obj_style.asp).  
 
@@ -114,5 +114,24 @@ Exemplo:
 ```js
 let parentElement = document.getElementById('must-have').parentNode; // returns <ul> element
 let childElements = document.getElementById('groceries').children; // returns an array of <li> elements
-````
+```
+
+
+## Criando e Inserindo Elementos
+
+Para criar um elemento HTML, precisamos usar o método `createElement()`. Este método retorna um novo elemento com base na *tag* passada nele como *argumento*. No exemplo abaixo, `createElement()` toma `p` como seu argumento que cria um elemento `<p>` vazio e o armazena como a *variável* `paragraph`.  
+
+```js
+let paragraph = document.createElement('p');
+
+paragraph.id = 'info'; 
+paragraph.innerHTML = 'The text inside the paragraph';
+
+document.body.appendChild(paragraph);
+```
+
+Podemos atribuir valores às propriedades do elemento recém-criado, como fizemos anteriormente com elementos existentes. Acima, usamos a propriedade `.id` para atribuir `'info'` como ID e a propriedade `.innerHTML` para definir `'The text inside the paragraph'` como o conteúdo do elemento `<p>`.  
+
+Para criar um elemento e adicioná-lo à página da web, você deve atribuí-lo como filho de um elemento que já existe no DOM, referido como o elemento pai. Chamamos esse processo de *appending*. O método `appendChild()` adiciona um elemento filho ao elemento pai especificado.
+
 
