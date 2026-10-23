@@ -34,6 +34,8 @@ Os navegadores vêm equipados com analisadores HTML que ajudam os navegadores a 
 
 O **_Document Object Model (DOM)_** é um modelo lógico que estrutura o documento HTML como um objeto. O DOM é uma árvore de *"nós"* que representa uma página HTML. Quando uma página da web é carregada, o navegador cria uma representação de árvore do documento HTML. O DOM é implementado pelos navegadores para permitir que o JavaScript *acesse, modifique e atualize* a estrutura de uma página web HTML de forma organizada.
 
+Saiba mais sobre a [anatomia do DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Anatomy_of_the_DOM) 
+
 - Um *nó pai* é qualquer nó que seja um ancestral direto de outro nó.
 - Um *nó filho* é um descendente direto de outro nó, chamado de nó pai.
 - Existem quatro tipos de nós:
@@ -41,8 +43,9 @@ O **_Document Object Model (DOM)_** é um modelo lógico que estrutura o documen
   - Nós de elemento: são nós que contêm *elementos*. Ex: `<p>`
   - Nós de atributo: são nós que contêm *atributos*. Ex: `<p id="my-paragraph">`
   - Nós de nó: são nós que contêm outros nós.
+
 <img src="./img/dom.png" alt="diagrama do">  
- 
+
 
 ## Métodos e Propriedades da Interface DOM
 
@@ -87,9 +90,29 @@ Exemplo:
 ```js
 // seleciona o primeiro elemento com a classe blue.
 let blueElement = document.querySelector('.blue'); 
+
 // atribui a cor azul como cor de fundo.
 blueElement.style.backgroundColor = 'blue'; 
 ```
 
 
+## Percorrendo o DOM
+
+Um nó pai é qualquer nó que seja ancestral direto de outro nó. Um nó filho é um descendente direto de outro nó, chamado nó pai. Essas relações seguem a estrutura hierárquica do código HTML. Elementos aninhados dentro de um elemento HTML são filhos desse elemento pai.  
+
+Cada elemento possui uma propriedade `.parentNode` que retorna o elemento pai especificado na hierarquia DOM, e uma propriedade `.children` que retorna um array dos filhos do elemento especificado. Se o elemento não tiver filhos, ele retornará `null`. `document` é o nó raiz, então `.parentNode` retorna `null`.
+
+Exemplo:
+```html
+<ul id='groceries'>
+  <li id='must-have'>Toilet Paper</li>
+  <li>Apples</li>
+  <li>Chocolate</li>
+  <li>Dumplings</li>
+</ul>
+```
+```js
+let parentElement = document.getElementById('must-have').parentNode; // returns <ul> element
+let childElements = document.getElementById('groceries').children; // returns an array of <li> elements
+````
 
