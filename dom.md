@@ -81,8 +81,9 @@ document.getElementsByTagName('li')[1].innerHTML = 'Cedric Diggory`;
 
 ### Estilizando Elementos
 
-Para estilizar um elemento, precisamos acessar o seu *atributo* `style`. O atributo `.style` de um elemento DOM fornece acesso ao estilo inline dessa tag HTML. A sintaxe segue um formato `element.style.property`, com a propriedade representando uma propriedade CSS. Diferente do CSS, a propriedade DOM `.style` não implementa um *hífen (-)*, como `background-color`, mas sim uma *notação camelCase*, `backgroundColor`. Por exemplo:
+Para estilizar um elemento, precisamos acessar o seu *atributo* `style`. O atributo `.style` de um elemento DOM fornece acesso ao estilo inline dessa tag HTML. A sintaxe segue um formato `element.style.property`, com a propriedade representando uma propriedade CSS. Diferente do CSS, a propriedade DOM `.style` não implementa um *hífen (-)*, como `background-color`, mas sim uma *notação camelCase*, `backgroundColor`. Confira mais em [W3 Reference on the HTML DOM style object](https://www.w3schools.com/jsref/dom_obj_style.asp).  
 
+Exemplo:
 ```js
 // seleciona o primeiro elemento com a classe blue.
 let blueElement = document.querySelector('.blue'); 
@@ -90,5 +91,5 @@ let blueElement = document.querySelector('.blue');
 blueElement.style.backgroundColor = 'blue'; 
 ```
 
-Confira mais em [W3 Reference on the HTML DOM style object](https://www.w3schools.com/jsref/dom_obj_style.asp)
+
 
