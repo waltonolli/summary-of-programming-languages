@@ -150,7 +150,26 @@ document.getElementById('sign').hidden = true;
 ```
 
 
+## Adicionando Interatividade por Click
 
+Você pode adicionar interatividade a elementos do DOM atribuindo uma função para ser executada com base em um evento. Eventos podem incluir qualquer coisa, desde um clique até um usuário passando o mouse sobre um elemento. 
 
+Saiba mais sobre [Eventos](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events) e [Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) no MDN.
 
+Por exemplo, para modificar um elemento quando um clique acontece, a propriedade `.onclick` permite que você atribua uma função para ser executada quando um evento de clique ocorre em um elemento:
+```js
+let element = document.querySelector('button');
 
+element.onclick = function() { 
+  element.style.backgroundColor = 'blue' 
+};
+
+// ou atribuir a propriedade .onclick a uma função com nome:
+let element = document.querySelector('button');
+
+function turnBlue() {
+   element.style.backgroundColor = 'blue';
+}
+
+element.onclick = turnBlue;
+```
