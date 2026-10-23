@@ -67,7 +67,28 @@ JavaScript possui *métodos* que selecionam elementos com base em sua *classe*, 
 - Para selecionar um elemento com base em seu nome de tag, use o método `getElementByTagName()`.
 - Para selecionar um elemento com base em sua classe, use o método `getElementsByClassName()`.
 - Para selecionar um elemento com base em seu ID, use o método `getElementById()`.
-- `querySelector()` nos permite especificar um seletor CSS como uma *string* e retorna o *primeiro elemento* que corresponde a esse seletor. Ex: 
+- `querySelector()` nos permite especificar um seletor CSS como uma *string* e retorna o *primeiro elemento* que corresponde a esse seletor.  
+
+Exemplos: 
 ```js
-document.querySelector('p');
+document.querySelector('h1').innerHTML = "Most popular Harry Potter characters";
+document.getElementById('bio').innerHTML = 'The description';
+// Set first element of .student class as 'Not yet registered'
+document.getElementsByClassName('student')[0].innerHTML = 'Not yet registered';
+// Set second <li> tag as 'Cedric Diggory'
+document.getElementsByTagName('li')[1].innerHTML = 'Cedric Diggory`;
 ```
+
+### Estilizando Elementos
+
+Para estilizar um elemento, precisamos acessar o seu *atributo* `style`. O atributo `.style` de um elemento DOM fornece acesso ao estilo inline dessa tag HTML. A sintaxe segue um formato `element.style.property`, com a propriedade representando uma propriedade CSS. Diferente do CSS, a propriedade DOM `.style` não implementa um *hífen (-)*, como `background-color`, mas sim uma *notação camelCase*, `backgroundColor`. Por exemplo:
+
+```js
+// seleciona o primeiro elemento com a classe blue.
+let blueElement = document.querySelector('.blue'); 
+// atribui a cor azul como cor de fundo.
+blueElement.style.backgroundColor = 'blue'; 
+```
+
+Confira mais em [W3 Reference on the HTML DOM style object](https://www.w3schools.com/jsref/dom_obj_style.asp)
+
