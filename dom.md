@@ -49,7 +49,7 @@ Saiba mais sobre a [anatomia do DOM](https://developer.mozilla.org/en-US/docs/We
 
 ## Métodos e Propriedades da Interface DOM
 
-**`document`** - nós raiz da árvore DOM. Antes de acessar um elemento específico na página, é necessário acessar a própria estrutura do documento. `document` permite que os script acessem e manipulem os *elementos filhos* da página.  
+**`document`** - É o nó raiz da árvore DOM. Antes de acessar um elemento específico na página, é necessário acessar a própria estrutura do documento. `document` permite que os script acessem e manipulem os *elementos filhos* da página.  
 
 Ao usar o DOM no seu script para acessar um elemento HTML, você também tem acesso a todas as *propriedades* desse elemento. Isso inclui a capacidade de *modificar o conteúdo do elemento*, bem como seus *atributos* e *propriedades*, que podem variar desde a modificação do texto dentro de um `<p>` elemento até a atribuição de uma nova cor de fundo para um `<div>`.  
 
@@ -58,6 +58,7 @@ O exemplo abaixo altera o conteúdo do elemento `<h1>` para "Hello World".
 document.body.innerHTML = '<h1>Hello World</h1>';
 ```
 
+[métodos fundamentais de nível DOM 1 e como usá-los a partir do JavaScript.](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Building_and_updating_the_DOM_tree)
 
 ## Seletores CSS
 
@@ -132,6 +133,24 @@ document.body.appendChild(paragraph);
 
 Podemos atribuir valores às propriedades do elemento recém-criado, como fizemos anteriormente com elementos existentes. Acima, usamos a propriedade `.id` para atribuir `'info'` como ID e a propriedade `.innerHTML` para definir `'The text inside the paragraph'` como o conteúdo do elemento `<p>`.  
 
-Para criar um elemento e adicioná-lo à página da web, você deve atribuí-lo como filho de um elemento que já existe no DOM, referido como o elemento pai. Chamamos esse processo de *appending*. O método `appendChild()` adiciona um elemento filho ao elemento pai especificado.
+Para criar um elemento e adicioná-lo à página da web, você deve atribuí-lo como filho de um elemento que já existe no DOM, referido como o elemento pai. Chamamos esse processo de *appending*. O método `appendChild()` adiciona um elemento filho ao elemento pai especificado. No exemplo acima, o método `.appendChild()` não substitui o conteúdo dentro do pai. Em vez disso, *ele adiciona o novo elemento como o último filho desse pai*.
+
+
+## Removendo ou Escondendo Elementos
+
+Para remover um elemento do DOM, você pode usar o método `removeChild()`. Este método remove um elemento filho do elemento pai especificado.
+```js
+let paragraph = document.querySelector('p');
+document.body.removeChild(paragraph);
+```
+
+Se você quiser ocultar um elemento em vez de excluí-lo completamente, a propriedade `.hidden` permite que você a oculte definindo a propriedade como `true` ou `false`:
+```js
+document.getElementById('sign').hidden = true;
+```
+
+
+
+
 
 
