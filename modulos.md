@@ -3,7 +3,7 @@
 O ambiente de execução é onde seu programa será executado. Ele determina quais objetos globais seu programa pode acessar e também pode impactar a forma como ele é executado.  
   
 Módulos são trechos de código reutilizáveis ​​em um arquivo que podem ser exportados e importados para uso em outro arquivo. Um programa modular é aquele cujos componentes podem ser separados, usados ​​individualmente e recombinados para criar um sistema complexo.  
-<img src="https://static-assets.codecademy.com/Courses/Learn-JavaScript/Modules/modular-program-diagram.svg" alt="diagrama de um módulo" width="300">
+<img src="https://static-assets.codecademy.com/Courses/Learn-JavaScript/Modules/modular-program-diagram.svg" alt="diagrama de um módulo" width="400">
 
 ## DOM (Document Object Model)
 O *Document Object Model (DOM)* é um modelo lógico que estrutura o documento HTML como um objeto. O DOM é uma API implementado por navegadores para permitir que o JavaScript *acesse, modifique e atualize* a estrutura de uma página web em HTML de forma organizada.
