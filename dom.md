@@ -22,12 +22,20 @@ Os navegadores vêm equipados com analisadores HTML que ajudam os navegadores a 
 ```html
 <script src="script.js" async></script>
 ```
+
+
 ## DOM - Document Object Model
 
-O Document Object Model (DOM) é um modelo lógico que estrutura o documento HTML como um objeto.  
-O HTML DOM é uma árvore de "nós" que representa uma página HTML. Quando uma página da web é carregada, o navegador cria uma representação de árvore do documento HTML.  
-O DOM é implementado pelos navegadores para permitir que o JavaScript acesse, modifique e atualize a estrutura de uma página web HTML de forma organizada.
-<img src="./img/dom.png" alt="diagrama do DOM">  
+O **_Document Object Model (DOM)_** é um modelo lógico que estrutura o documento HTML como um objeto. O DOM é uma árvore de *"nós"* que representa uma página HTML. Quando uma página da web é carregada, o navegador cria uma representação de árvore do documento HTML. O DOM é implementado pelos navegadores para permitir que o JavaScript *acesse, modifique e atualize* a estrutura de uma página web HTML de forma organizada.
+- Um *nó pai* é qualquer nó que seja um ancestral direto de outro nó.
+- Um *nó filho* é um descendente direto de outro nó, chamado de nó pai.
+- Existem quatro tipos de nós:
+  - Nós de texto: são nós que contêm *texto*.
+  - Nós de elemento: são nós que contêm *elementos*. Ex: `<p>`
+  - Nós de atributo: são nós que contêm *atributos*. Ex: `<p id="my-paragraph">`
+  - Nós de nó: são nós que contêm outros nós.
+<img src="./img/dom.png" alt="diagrama do">  
  
-
+ 
+## Métodos e Propriedades da Interface DOM
 

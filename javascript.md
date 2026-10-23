@@ -27,6 +27,7 @@ console.log(nome)                           // exibe o nome do usuário
 ```
 
 ## Variáveis
+
 (*variables*)
 São "caixas" nomeadas que armazenam um valor na memória. 
 Em JavaScript, declaram-se com `let`, `const` ou `var`.
@@ -41,11 +42,15 @@ const nome = "Walkyria";       // não pode ser reatribuída
 // Interpolação de variáveis em strings. Tamplete literal com `${}`
 console.log(`Seu nome é ${nome} e tem ${idade} anos.`) 
 ```
+
 ### Hoisting
+
 O JavaScript é uma linguagem de *hoisting*, ou seja, o código é interpretado antes de ser executado. Isso significa que variáveis e funções são declaradas antes de serem usadas. Isso é útil para evitar problemas de escopo e garantir que as variáveis estejam disponíveis quando você as usa. 
+
 
 ### Escopo
 (*scope*)
+
 Escopo é a região do código onde uma variável (ou função) pode ser acessada. O escopo é definido pela ordem em que as declarações são executadas.
 - **Escopo global**: variáveis e funções declaradas fora de qualquer função.
 - **Escopo de função**: variáveis e funções declaradas dentro de uma função.
@@ -63,6 +68,7 @@ Devemos seguir as melhores práticas para delimitar o escopo de nossas variávei
 - Torna o código mais compreensível, esclarecendo quais variáveis ​​estão associadas a diferentes partes do programa, em vez de ter que rastreá-las linha por linha!
 - É mais fácil manter um código com escopo bem definido, pois ele será modular.
 - Economiza memória porque as variáveis ​​com escopo de bloco deixarão de existir após a conclusão da execução do bloco.
+
 
 ## Tipos de dados
 
@@ -85,6 +91,7 @@ console.log(typeof nome);   // "string"
 console.log(typeof novaVariavel); // "boolean"
 ```
 
+
 ## Operadores
 
 | Operador | Descrição |
@@ -98,6 +105,7 @@ console.log(typeof novaVariavel); // "boolean"
 | -- | decrementa |
 | = | atribuição |
 
+
 ## Operadores de comparação
 
 | Operador | Descrição |
@@ -110,6 +118,7 @@ console.log(typeof novaVariavel); // "boolean"
 | < | less than |
 | <= | less than or equal to |
 
+
 ## Operadores lógicos
 
 | Operador | Descrição |
@@ -118,8 +127,10 @@ console.log(typeof novaVariavel); // "boolean"
 | \|\| | ou |
 | ! | não, inverte |
 
+
 ## Condições / fluxo de controle
 (*conditions* / *conditionals*)
+
 Estruturas que fazem o programa tomar decisões: um trecho de código só executa se uma expressão for verdadeira (*true*).
 
 ```js
@@ -139,14 +150,18 @@ let username = '';
 let defaultName = username || 'Stranger'; // username se verdadeiro, 'Stranger' se falso
 ```
 
-### Operador ternário
+
+### Operador Ternário
+
 É uma forma curta de escrever uma estrutura condicional if/else em uma única linha no JavaScript.
 ```js
 // condicao ? valorSeVerdadeiro : valorSeFalso;
 isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lights!');
 ```
 
+
 ### Switch
+
 Uma estrutura de seleção de valores que executa um bloco de código para cada caso de valor.
 É uma alternativa mais simples e eficiente para o if...else.
 
@@ -166,6 +181,7 @@ switch (expressao) {
 - *`case valor`*: Uma opção de comparação. O JavaScript usa a comparação estrita (===), ou seja, o tipo do dado também precisa ser igual.
 - *`break;`*: Uma palavra-chave crucial. Ela encerra a execução do switch. Se você esquecer o break, o código continuará executando os próximos casos automaticamente (comportamento chamado de fall-through).
 - *`default`*:  É o caso padrão (opcional). Funciona como `else` final, sendo executado se nenhuma correspondência for encontrada.
+
 
 ## Funções
 (*functions*)
@@ -188,8 +204,10 @@ const comprimento = 5;
 calcularArea(base, comprimento); // argumentos como variáveis
 ```
 
+
 ### Parametros padrão
 (*default parameters*)
+
 Permitem que os parâmetros tenham um valor pré-determinado caso nenhum argumento seja passado para a função ou se o argumento for indefinido quando chamado.
 ```js
 function calcularArea(largura = 10, altura = 10) {
@@ -200,8 +218,10 @@ calcularArea(5); // 50
 calcularArea(6, 15); // 90
 ```
 
+
 ### Retorno
 (*return*)
+
 É usado para retornar um valor para o código que chamou a função. Por padrão, o valor resultante é indefinido.
 -Para capturar o valor retornado, utilize a palavra-chave `return`. Sem a palavra-chave `return`, a função calculará o valor mas retornará o valor `indefinido`.
 - Quando uma instrução de retorno é usada em um corpo de função, a execução da função é interrompida e o código que se segue não será executado.
@@ -230,8 +250,10 @@ function celsiusToFahrenheit(celsius) {
 celsiusToFahrenheit(0); // returns 32
 ```
 
+
 ### Expressões de função
 (*function expressions*)
+
 - Se você usa function expression, defina a função antes de chamá-la. Se usa function declaration, a ordem no arquivo não importa.
 - Declare uma variável para fazer do nome da variável o nome, ou identificador, da função.
 - Em uma expressão de função, o nome da função geralmente é omitido. Uma função sem nome é chamada de *função anônima*.
@@ -243,9 +265,12 @@ const soma = function(a, b) {
 console.log(soma(2, 3)); // 5
 ```
 
+
 ### Arrow Functions
 (*arrow functions*)
+
 São funções anônimas, que podem ser usadas em lugar de funções nomeadas. São úteis para criar funções de uma única expressão.
+
 ```js
 const areaRetangulo = (larg, alt) => {
   let area = larg * alt;
@@ -258,6 +283,7 @@ const soma = (a, b) => a + b;
 Funções que aceitam apenas um parâmetro não precisam que esse parâmetro seja encerrado entre parênteses.
 No entanto, se uma função recebe zero ou vários parâmetros, os parênteses são obrigatórios.
 Um corpo de função composto por um bloco de linha única não precisa de chaves{}. Sem as chaves{}, tudo o que essa linha avaliar será automaticamente devolvido. O conteúdo do bloco deve seguir imediatamente a seta => e a palavra-chave de retorno pode ser removida. Isso é chamado de *retorno implícito*.
+
 ```js
 //ZERO PARAMETERS
 const functionName = () => { /* ... */ };
@@ -267,21 +293,24 @@ const functionName = param => { /* ... */ };
 const functionName = (param1, param2) => { /* ... */ };
 ```
 
+
 ### Refatoração de arrow functions
+
 Se temos a função:
 ```js
 const squareNum = (num) => {
   return num * num;
 };
 ```
-
 Podemos refatorar para:
 ```js
 const squareNum = num => num * num;
 ```
 
+
 ## Arrays / listas
 (*arrays*)
+
 Uma lista é uma sequência ordenada de valores. Uma lista pode ser de qualquer tipo de dado, incluindo outras listas.
 Arrays podem armazenar qualquer tipo de dado, incluindo outros arrays.
 - Para criar um array, utilize a sintaxe `[]`.
@@ -296,7 +325,9 @@ const array3 = [array1, array2]; // array aninhado
 const nestedArr = [1, 2, [3, 4]]; // array aninhado
 ```
 
+
 ### Acessando um elemento
+
 Para acessar um elemento de um array, utilize o índice do elemento. 
 O primeiro elemento do array tem índice 0, o segundo 1, e assim por diante.
 Para acessar um elemento, usamos o nome do array seguido do índice do elemento entre colchetes[].
@@ -317,7 +348,9 @@ hello[0]; // 'H'
 hello[5]; // 'W'
 ```
 
+
 ### Alterando Valor de um Elemento
+
 Com acesso a um elemento em um array, também podemos atualizar seu valor.
 ```js
 let seasons = ['Spring', 'Summer', 'Fall', 'Winter'];
@@ -335,7 +368,9 @@ utensilios[0] = "Forno"; // Altera valor do primeiro elemento
 utensilios = ["Forno"]; // erro (não pode ser reatribuído porque é uma variavel const)
 ```
 
+
 ### A propridade length`
+
 Uma das propriedades incorporadas de um array é o length, e retorna o número de itens no array. Acessamos a propriedade `.length` assim como fazemos com strings.
 ```js
 const metas = ["Manter um diário", "Fazer aulas de ingles", "Ler 2 livros ao mês"];
@@ -343,21 +378,30 @@ const novaMeta = "Terminar faculdade";
 console.log(metas.length); // 3
 console.log(novaMeta.length); // 21
 ```
+
+
 ### O método push()
+
 O método `push()` adiciona um elemento ao final de um array.
 ```js
 const metas = ["Manter um diário", "Fazer aulas de ingles", "Ler 2 livros ao mês"];
 metas.push("Terminar faculdade");
 console.log(metas); // ["Manter um diário", "Fazer aulas de ingles", "Ler 2 livros ao mês", "Terminar faculdade"]
 ```
+
+
 ### O método pop()
+
 O método `pop()` remove o último elemento de um array.
 ```js
 const metas = ["Manter um diário", "Fazer aulas de ingles", "Ler 2 livros ao mês", "Terminar faculdade"]; 
 metas.pop();
 console.log(metas); // ["Manter um diário", "Fazer aulas de ingles", "Ler 2 livros ao mês"]
 ```
+
+
 ### Outros métodos de Array
+
 `.pop()` e `.push()` aleram o array no qual eles são chamados. No entanto, há momentos em que não queremos mutar o array original, e podemos usar *métodos de array sem mutação*. Certifique-se de verificar os Docs para entender o comportamento do método antes de usá-lo.
 - .join() - Concatena todos os elementos do array em uma string.
 - .slice() - Retorna um novo array com os elementos selecionados.
@@ -367,7 +411,9 @@ console.log(metas); // ["Manter um diário", "Fazer aulas de ingles", "Ler 2 liv
 - .concat() -  Retorna um novo array com os elem. do array original e os elem. passados como argumento.
 - .indexOf() - Busca o índice do primeiro elemento que corresponde ao valor buscado.
 
+
 ### Arrays e Funções
+
 Arrays podem ser usados como parâmetros para funções.
 Quando passamos um array em uma função, se o array é mutado dentro da função, essa mudança também será mantida fora da função.
 **_pass-by-reference_** quando passamos para a função uma referência ao local onde a variável está armazenada na memória e alterando os dados lá.
@@ -382,10 +428,13 @@ console.log(conceito); // ["Arrays", "podem", "ser", "MUTADOS"]
 
 
 ## Loop (*loop*) ou Laço de Repetição
+
 Um *loop* é uma estrutura que repete um bloco de código (um conjunto de instruções), até que uma condição especificada, chamada condição de parada, seja atingida.
 - Você pode ouvir o termo genérico iterar (*iterate*) ao se referir a loops; iterar simplesmente significa "repetir".
 
+
 ### O Loop For
+
 A for loop contém três expressões separadas por ; dentro dos parênteses:
 - Inicialização (*initialization*): inicia o loop e também pode ser usado para declarar variáveis.
 - Condição (*condition*): verifica se o loop deve continuar. Condição em relação à qual a variável iteradora é avaliada. Se falsa o loop é encerrado.
@@ -395,7 +444,10 @@ for (let contador = 0; contador <= 10; contador++) {
   console.log(contador); // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 }
 ```
+
+
 ### Decremento (Looping Reverse)
+
 Defina a *variável iterador* para o **valor mais alto** desejado na expressão de inicialização. Em seguida, use o operador `--` para decrementar o valor da variável.
 ```js
 for (let contador = 10; contador >= 0; contador--) {
@@ -403,7 +455,9 @@ for (let contador = 10; contador >= 0; contador--) {
 }
 ```
 
+
 ### Loop Através de um Array
+
 Um loop `for` pode ser usado para iterar sobre um array.
 - A *variável iteradora* é o *índice* do array.
 - Para percorrer cada elemento em um array, deve-se usar a propriedade `.length` do array em sua *condição*.
@@ -414,7 +468,9 @@ for (let i = 0; i < array.length; i++) {
 }
 ```
 
+
 ### Loops for Aninhados
+
 Usado para comparar valores em arrays.
 ```js
 const array1 = [1, 2, 3, 4, 5];
@@ -428,7 +484,9 @@ for (let i = 0; i < array1.length; i++) {
 }
 ```
 
+
 ### O Loop While
+
 A sintaxe do loo `while` é ideal quando *não sabemos* com antecedência quantas vezes o loop deve ser executado.
 Uma instrução `while` executa suas instruções enquanto uma condição é avaliada como verdadeira.
 - A *variável contadora* é declarada antes do loop.
@@ -442,7 +500,9 @@ while (contadorDois <4) {
 }
 ```
 
+
 ### O Loop Do...While
+
 Quando precisamos que o loop execute *pelo menos uma vez* antes da condição ser verificada, o loop `do...while` é mais adequado.
 A `do... while` instrução diz para fazer uma tarefa uma vez e depois continuar fazendo até que uma condição especificada não seja mais atendida.
 - `do...while` será executado pelo menos uma vez, independentemente de a condição ser avaliada como verdadeira ou não.
@@ -458,7 +518,9 @@ do {
 console.log(contarString); // 01234
 ```
 
+
 ## Break (*break*) palavra-chave
+
 A palavra-chave `break` é usada para interromper um loop *antes* de ele terminar.
 A instrução `break` pode ser útil em loops por grandes estruturas de dados! Com *breaks*, podemos adicionar condições de testes além da condição de parada e sair do loop quando foram atendidas.
 ```js
@@ -473,9 +535,12 @@ console.log('Laranja! Eu quebrei o loop.');
 
 Outros tipos: `for...of`, `for...in`.
 
+
 ## Funções de Ordem Superior
 
+
 ### Funções como parâmetros
+
 Parâmetro é um espaço reservado para os dados que são passados para uma função. Uma função de ordem superior (*higher-order functions*) é uma função que aceita outras funções como parâmetros, retorna uma função ou ambos. São úteis para escrever código mais legível e reutilizável.  
 - Chamamos as funções que são passadas como parâmetros de *funções de retorno* (*callback functions*).
 - Ao invocar uma função de ordem superior e passar outra função como argumento, passamos a própria função digitando o nome dela sem os parenteses.
@@ -493,7 +558,9 @@ const outraFuncao = () => {
 funcaoDeOrdemSuperior(outraFuncao); 
 ```
 
+
 ### Funções como dados
+
 Podemos atribuir funções a *variáveis*. O valor atribuido é o *nome da função sem parenteses*. Queremos atribuir o valor da própria função, não o valor que ela retorna quando invocada.
 ```js
 const digaQueEstouFazendoUmImportanteTrabalho = () => {
@@ -503,8 +570,8 @@ const ocupado = digaQueEstouFazendoUmImportanteTrabalho;
 ```
 
 
-## Objetos
-(*objects*)
+## Objetos (*objects*)
+
 São contêineres de propriedades e métodos agrupados sob um mesmo nome. Representam "coisas" (um usuário, um produto, uma data). Usamos objetos para modelar coisas do mundo real, ou para construir as estruturas de dados que tornam a web possível.
 - Objetos literais são criados escrevendo o conteúdo entre chaves `{}`.
 - Objetos literais são *atribuidos (assigned)* a variáveis usadas para criar objetos.
@@ -517,6 +584,7 @@ const carro = {
 ```
 
 ### Propriedades (*properties*)
+
 São o par `key: value` de um objeto, descrevem características dele.
 ```js
 const pessoa = { 
@@ -525,7 +593,9 @@ const pessoa = {
 };
 ```
 
+
 ### Acessando Propriedades
+
 Para acessar propriedades de um objeto, usamos o `.` ou `[]` para acessar o valor de uma propriedade.
 Devemos usar `[]` ao acessar chaves que *não são nomes de identificador válidos* (por exemplo, chaves que começam com um número ou contêm espaços ou caracteres especiais). Sem a notação entre parênteses nessas situações, nosso código lançaria um erro.
 ```js
@@ -538,7 +608,9 @@ let retornaUmaPropriedade = (obj, prop) => obj[prop];
 retornaUmaPropriedade(pessoa, "nome"); 
 ```
 
+
 ### Modificando Propriedades (*proerties assignment*)
+
 Objetos são *mutáveis*. Mas não se pode reatribuir um objeto com variável `const`. Podemos usar a notação `.`ou `[]` junto com o operador `=` para atribuir um novo valor a uma propriedade. Se a propriedade já existir no objeto, o valor será atualizado. Caso contrário, uma nova propriedade será criada.
 ```js
 pessoa.nome = "Ana Maria";
@@ -555,10 +627,14 @@ delete pessoa.nome;
 delete carro["Tipo de Combustivel"];
 ```
 
+
 ### Acessando Propriedades de Objetos
+
 Para acessar propriedades de um objeto, usamos o `.` ou `[]` para acessar o valor de uma propriedade.
 
+
 ### Métodos (*methods*)
+
 Quando os dados armazenados em um objeto são uma função, chamamos isso de método.  
 Uma `propriedade` é o que um objeto *tem*, enquanto um `método` é o que um objeto *faz*.  
 Por exemplo: `console` é um objeto JavaScript global e `.log()` é um método nesse objeto. `Math`é objeto global e `.floor()`é o método.
@@ -581,7 +657,9 @@ const naveEspacial = {
 naveEspacial.invade();
 ```
 
+
 ### Objetos aninhados
+
 Objetos são frequentemente aninhados. Um objeto pode ter outro objeto como uma propriedade, que por sua vez pode ter uma propriedade que é um array de ainda mais objetos!
 EXEMPLO:
 ```js
@@ -618,7 +696,9 @@ Podemos encadear operadores para acessar propriedades aninhadas:
 naveEspacial.nanoelectronica.["back-up"].bateria;
 ```
 
+
 ### Passando Objetos como Referência (*Pass By Reference*)
+
 **Modificando Objetos com funções**  
 *Quando objetos são passados por referência*. Uma `variável atribuída` a um objeto em uma função como `argumento`, o computador interpreta o nome do `parâmetro` como apontando para o espaço na memória que contém esse objeto. Como resultado, funções que alteram propriedades do objeto realmente mudam o objeto permanentemente (*mesmo quando o objeto é atribuído a uma variável `const`*).
 ```js
@@ -635,7 +715,9 @@ pintarPlaneta(naveEspacial); // altera o objeto permanentemente
 naveEspacial.cor;
 ```
 
+
 ### Reatribuindo Objetos (*reassigning objects*)
+
 É possível reatribuir um objeto de uma variável `let`.
 ```js
 let naveEspacial = {
@@ -666,7 +748,9 @@ pintarPlaneta(naveEspacial); // A tentativa de reatribuição não funciona.
 console.log(naveEspacial); // {planetaCasa: "Terra", cor: "prata"}
 ```
 
+
 ### Percorrendo Objetos em loop
+
 Laços (loops) são ferramentas de programação que repetem um bloco de código até que uma condição seja satisfeita. Iteramos através de arrays usando sua indexação numérica, mas os pares chaves-valor em objetos não são ordenados. Para iterar sobre objetos o JavaScreipt oferece a sintaxe `for...in`.  
 `for...in` executará um dado bloco de código para cada propriedade em um objeto.
 Sintaxe:
@@ -702,7 +786,9 @@ for (let pessoa in naveEspacial.tripulacao) {
 }
 ```
 
+
 ### A palavra-chave `this`
+
 *Usado em métodos* para acessar propriedades que fazem parte do objeto onde o método se encontra.  
 `this` é necessário porque *dentro do escopo do método*, não temos acesso automático a outras propriedades do objeto. Então, para chamar um objeto dentro de um método, é necessário usar a palavra-chave `this`.
 > *Arrow functions* inerentemente vinculam (*inherently bind*), um valor `this` à própria função que **não** é o objeto chamador. Nesses casos o valor `this` é um objeto que de escopo global, https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/this - `this` retorna undefined (ver exemplo).
@@ -733,7 +819,9 @@ const cabrito = {
 cabrito.diet(); // printa undefined
 ```
 
+
 ### Privacidade (*privacy*) de propriedades
+
 Objetos podem ter propriedades que são privadas. Isso significa que elas não podem ser acessadas diretamente pelo código que não é o proprietário do objeto. Para definir uma propriedade privada, usamos a notação `key: value` comum, mas adicionamos um `_` antes do nome da propriedade.  
 Os métodos `getter` e `setter` são utilizados para propriedades privadas. Os `getters` podem retornar o valor de propriedades internas, e os `setters` podem reatribuir valores de propriedades com segurança.
 > Algumas linguagens têm privacidade integrada para objetos, mas o JavaScript não possui esse recurso. Em vez disso, os desenvolvedores JavaScript seguem uma convenção comum de colocar um sublinhado (`_`) antes do nome de uma propriedade para indicar que ela não deve ser alterada. *Mesmo assim, ainda é possível reatribuir.*  
@@ -757,7 +845,9 @@ pessoa._id; // 123456
 pessoa.__email; // "ana@email.com"
 ```
 
+
 ### Getters e Setters em Objetos
+
 Getters e setters são métodos especiais que permitem controlar a **leitura e a alteração das propriedades** de um objeto. A principal diferença em relação aos métodos comuns é que getters e setters são acessados como propriedades, sem utilizar parênteses `()`.
 - Getter (`get`): permite obter ou calcular o valor de uma propriedade.
 - Setter (`set`): permite definir ou modificar o valor de uma propriedade, podendo realizar validações antes da alteração.
@@ -788,7 +878,9 @@ console.log(pessoa.nome);              // "Maria"
 console.log(pessoa.sobrenome);         // "Souza Lima"
 ```
 
+
 ### Funções de fabrica (*Factory Functions*)
+
 Uma função de fábrica é uma função que retorna um objeto e pode ser **reutilizada** para criar várias instâncias de objetos. As funções de fábrica também podem ter parâmetros, permitindo personalizar o objeto que é devolvido.
 ```js
 const fabricaDeMonstros = (nome, idade, fonteEnergia, fraseEfeito ) => {
@@ -805,10 +897,15 @@ const fabricaDeMonstros = (nome, idade, fonteEnergia, fraseEfeito ) => {
 const fantasma = fabricaDeMonstros("Drácula", 251, "sangue", "AARRRGH!");
 fantasma.assustar(); // "AARRRGH!"
 ```
+
+
 ## Desestruturação (*Destructuring*)
+
 Simplifica o trabalho com *arrays* e *objetos* complexos, reduzindo a quantidade de código que você precisa escrever. 
 
+
 ### Desestruturação em objetos
+
 Podemos usar a abreviação do valor da propriedade quando a chave e a variável passada como o valor compartilham o mesmo nome. O exemplo a seguir funciona exatamente igual ao da função de fábrica acima:
 ```js
 const fabricaDeMonstros = (nome, idade , fonteEnergia, fraseEfeito ) => {
@@ -832,7 +929,11 @@ No entanto, também podemos aproveitar uma técnica de desestruturação chamada
 const {fonteEnergia} = fantasma;
 console.log(fonteEnergia); // "sangue"
 ```
-### Métodos Integrados de Objetos (*Built-in Object Methods*)
+
+
+### Métodos Integrados de Objetos
+(*Built-in Object Methods*)
+
 Objetos têm métodos integrados que podem ser usados diretamente em um objeto.  
 Temos acesso a métodos de instância de objeto como: `.hasOwnProperty()` e `.valueOf()`. Também existem métodos úteis de classes de objeto, como `Object.assign()`, `Object.entries()` e `Object.keys()`. Para uma lista completa, navegue por: [MDN’s object instance documentation](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object).
 ```js
@@ -859,7 +960,9 @@ console.log(novoRobo);
 console.log(robo); 
 ```
 
+
 ## Classes (*class*)
+
 Classes são templates para objetos.
 - Use a palavra-chave `class` para criar uma classe.
 - Adicione *sempre* um método chamado `construtor()`. Só pode existir um construtor por classe.
@@ -884,7 +987,9 @@ class Carro {
 }
 ```
 
+
 ### Instância (*instance*)
+
 É um objeto criado a partir de uma *classe* (molde, ou função construtora).  
 - A classe define a estrutura (quais propriedades e métodos existem);
 - A instância é o objeto criado através da classe, com seus próprios valores.
@@ -895,7 +1000,9 @@ const carro1 = new Carro("Fiat", 2024);   // INSTÂNCIA carro1
 const carro2 = new Carro("Ford", 2020);   // INSTÂNCIA carro2
 ```
 
+
 ### Métodos, Getters e Setters de Instâncias
+
 A sintaxe dos métodos e getters de classe é a mesma que a dos objetos, **_exceto que não podemos incluir vírgulas entre eles._**
 ```js
 class Dog {
@@ -929,7 +1036,9 @@ let bradford = new Dog('Bradford');
 console.log(bradford.behavior);  // 0
 ```
 
+
 ### Herança (*Inheritance*)
+
 Com a herança, podemos criar uma classe pai (também conhecida como *superclass*) com propriedades e métodos que várias classes filhas (também conhecidas como *subclasses*) compartilham. As classes filhas herdam as propriedades e métodos de sua classe pai.  
   
 EXEMPLO DE CLASSE PAI:
@@ -974,7 +1083,9 @@ bryceCat.incrementBehavior();
 console.log(bryceCat.behavior);  // 2 acessa a propriedade via getter
 ```
 
+
 ### Métodos Estáticos (*Static Methods*)
+
 Métodos estáticos são métodos que *pertencem à classe, e não aos objetos (instâncias)* criados a partir dela. Isso significa que você pode chamar um método estático diretamente pelo nome da classe, sem precisar criar um objeto usando `new`.
 - Para um método estático, use a palavra-chave `static`.
 - Não é criado um objeto para chamar um método estático.

@@ -5,10 +5,14 @@ O ambiente de execução é onde seu programa será executado. Ele determina qua
 Módulos são trechos de código reutilizáveis ​​em um arquivo que podem ser exportados e importados para uso em outro arquivo. Um programa modular é aquele cujos componentes podem ser separados, usados ​​individualmente e recombinados para criar um sistema complexo.  
 <img src="https://static-assets.codecademy.com/Courses/Learn-JavaScript/Modules/modular-program-diagram.svg" alt="diagrama de um módulo" width="400">
 
+
 ## DOM (Document Object Model)
+
 O *Document Object Model (DOM)* é um modelo lógico que estrutura o documento HTML como um objeto. O DOM é uma API implementado por navegadores para permitir que o JavaScript *acesse, modifique e atualize* a estrutura de uma página web em HTML de forma organizada.
 
+
 ## Ambiente de execução de um navegador (módulo ES6)
+
 O Ambiente mais comum onde o JavaScript é executado é no navegador. O JavaScript é interpretado pelo navegador, o que significa que ele é executado na memória do navegador. Salve um arquivo com a extensão `.html`, insira o código JavaScript no corpo do arquivo e salve o arquivo. Abra o arquivo no navegador para ver o resultado.
 - o conteúdo javascript é colocado dentro de um elemento `<script>` no arquivo html.
 - o arquivo html é carregado e interpreato pelo navegador.
@@ -23,7 +27,9 @@ Exemplo: meu_site.html
 </html>
 ```
 
+
 ## Implementando módulos ES6 no Browser (navegador)
+
 O módulo ES6 é um recurso que permite que você escreva código JavaScript que pode ser usado em diferentes arquivos. Ao criar um site, é preciso criar um *arquivo HTML*, um *arquivo CSS* e um *arquivo JavaScript*. O arquivo HTML é usado para criar a estrutura da página, o arquivo CSS é usado para estilizar a página e o arquivo JavaScript é usado para adicionar interatividade e comportamento à página.  
 ```html
 <!-- secret-messages.html --> 
@@ -63,7 +69,10 @@ const changeToFunkyColor = (domElement) => {
 
 export { toggleHiddenElement, changeToFunkyColor };
 ```
+
+
 ### Sintaxe de Importação Nomeada do ES6
+
 A sintaxe ES6 para **importar** recursos nomeados de módulos é semelhante à seguinte `export` sintaxe: `import { nome1, nome2, nome3 } from "./nome-do-arquivo.js";`.  
 ```js
 /* secret-messages.js */
@@ -93,7 +102,10 @@ export const changeToFunkyColor = (domElement) => {
   // logic omitted...
 }
 ``` 
+
+
 ### Renomeando importações para evitar conflitos de nomes
+
 Quando você importa módulos, eles podem ter nomes de variáveis e funções que se sobrepõem. Para evitar esses conflitos, você pode usar o operador `as` para renomear as variáveis ou funções importadas. Sintaxe: `import { recursoExportado as recursoRenomeado } from "./nome-do-arquivo.js" `. Por exemplo:
 ```js
 /* inside greeterEspanol.js */
@@ -123,7 +135,9 @@ greetEspanol(); // Prints: hola
 greetFrancais(); // Prints: bonjour
 ```
 
+
 ### Exportações e Importações Padrão
+
 *Default Exports and Imports*
 Cada módulo também tem a opção de exportar um único valor para representar o *módulo inteiro*, chamado de `default export`. A sintaxe para exportar um objeto padrão é a seguinte:
 ```js
@@ -152,20 +166,14 @@ import { default as importedResources } from 'module.js';
 
 
 
-
-
-
-
-
-
-
-
-
 ## Ambiente de execução do Node.js (módulos CommonJS)
+
 Em 2009, o ambiente de execução Node.js foi criado com o objetivo de executar código JavaScript sem um navegador, permitindo assim que os programadores criassem aplicações completas (front-end e back-end) usando apenas a linguagem JavaScript. O Node.js é executado no servidor e não no navegador.  
 O ambiente de execução do Node.js oferece aos aplicativos de back-end acesso a uma variedade de recursos indisponíveis em um navegador, como acesso ao sistema de arquivos, banco de dados e rede do servidor.
 
+
 ### Para exportar módulos
+
 Para criar um módulo, basta criar um novo arquivo onde as variáveis ​​e funções possam ser declaradas. Em seguida, para disponibilizar essas funções para outros arquivos, adicione-as como propriedades ao `module.exports` objeto integrado
 ```js
 /* converters.js */
@@ -184,7 +192,9 @@ module.exports.fahrenheitToCelsius = function(fahrenheit) {
 };
 ```
 
+
 ### Para importar módulos
+
 O `module.exports` é um objeto integrado ao ambiente de execução do Node.js. Agora outros arquivos podem *importar* esse objeto e usar essas funções utilizando outro recurso integrado ao ambiente de execução do Node.js, o `require()`.
 O `require()`função aceita uma string como argumento. Essa string fornece o caminho do arquivo para o módulo que você deseja importar.
 ```js
@@ -202,7 +212,9 @@ console.log(`The boiling point of water in Fahrenheit is ${boilingPointF}`);
 ```
 No exemplo acima, `./` é um caminho relativo que indica que `converters.js` está armazenado no mesmo diretório que `water-limits.js`. Quando você usa `require()`, todo o objeto `module.exports` é devolvido e armazenado na variável *converters*. Isso significa que ambos, `.celsiusToFahrenheit()` e `.fahrenheitToCelsius()` métodos podem ser usados neste programa.
 
+
 ### Usando desestruturação de objetos (Object Destructuring)
+
 Em muitos casos, os módulos irão exportar um grande número de dados e funções, mas apenas um ou dois deles são necessários em um determinado arquivo. Você pode usar a *desestruturação de objetos (object destructuring)* para importar apenas os dados ou funções que você precisa.
 ```js
 /* celsius-to-fahrenheit.js */
