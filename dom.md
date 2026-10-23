@@ -46,3 +46,28 @@ O **_Document Object Model (DOM)_** é um modelo lógico que estrutura o documen
 
 ## Métodos e Propriedades da Interface DOM
 
+**`document`** - nós raiz da árvore DOM. Antes de acessar um elemento específico na página, é necessário acessar a própria estrutura do documento. `document` permite que os script acessem e manipulem os *elementos filhos* da página.  
+
+Ao usar o DOM no seu script para acessar um elemento HTML, você também tem acesso a todas as *propriedades* desse elemento. Isso inclui a capacidade de *modificar o conteúdo do elemento*, bem como seus *atributos* e *propriedades*, que podem variar desde a modificação do texto dentro de um <p> elemento até a atribuição de uma nova cor de fundo para um <div>.  
+
+O exemplo abaixo altera o conteúdo do elemento `<h1>` para "Hello World".
+```js
+document.body.innerHTML = '<h1>Hello World</h1>';
+```
+
+
+### Seletores CSS
+
+Com `document.body` acessamos o elemento `<body>` com a palavra-chave `document`. Mas para acessar um elemento específico sem acessar todo o elemento `<body>`? O DOM nos permite usar *seletores CSS* para selecionar elementos específicos.
+
+*Seletores CSS* definem os elementos aos quais um conjunto de regras CSS se aplica, mas também podemos usar esses mesmos seletores para acessar elementos DOM com JavaScript! Os seletores podem incluir um *nome de tag*, uma *classe* ou um *ID*.
+
+JavaScript possui *métodos* que selecionam elementos com base em sua *classe*, *id* ou *nome de tag*.
+
+- Para selecionar um elemento com base em seu nome de tag, use o método `getElementByTagName()`.
+- Para selecionar um elemento com base em sua classe, use o método `getElementsByClassName()`.
+- Para selecionar um elemento com base em seu ID, use o método `getElementById()`.
+- `querySelector()` nos permite especificar um seletor CSS como uma *string* e retorna o *primeiro elemento* que corresponde a esse seletor. Ex: 
+```js
+document.querySelector('p');
+```
