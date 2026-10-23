@@ -48,7 +48,7 @@ O **_Document Object Model (DOM)_** é um modelo lógico que estrutura o documen
 
 **`document`** - nós raiz da árvore DOM. Antes de acessar um elemento específico na página, é necessário acessar a própria estrutura do documento. `document` permite que os script acessem e manipulem os *elementos filhos* da página.  
 
-Ao usar o DOM no seu script para acessar um elemento HTML, você também tem acesso a todas as *propriedades* desse elemento. Isso inclui a capacidade de *modificar o conteúdo do elemento*, bem como seus *atributos* e *propriedades*, que podem variar desde a modificação do texto dentro de um <p> elemento até a atribuição de uma nova cor de fundo para um `<div>`.  
+Ao usar o DOM no seu script para acessar um elemento HTML, você também tem acesso a todas as *propriedades* desse elemento. Isso inclui a capacidade de *modificar o conteúdo do elemento*, bem como seus *atributos* e *propriedades*, que podem variar desde a modificação do texto dentro de um `<p>` elemento até a atribuição de uma nova cor de fundo para um `<div>`.  
 
 O exemplo abaixo altera o conteúdo do elemento `<h1>` para "Hello World".
 ```js
