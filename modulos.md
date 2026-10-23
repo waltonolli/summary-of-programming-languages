@@ -63,7 +63,7 @@ const changeToFunkyColor = (domElement) => {
 
 export { toggleHiddenElement, changeToFunkyColor };
 ```
-### Sintaxe de importação nomeada do ES6
+### Sintaxe de Importação Nomeada do ES6
 A sintaxe ES6 para **importar** recursos nomeados de módulos é semelhante à seguinte `export` sintaxe: `import { nome1, nome2, nome3 } from "./nome-do-arquivo.js";`.  
 ```js
 /* secret-messages.js */
@@ -113,7 +113,7 @@ Digamos que você queira usar cada uma dessas funções em um programa chamado m
 import { greet } from 'greeterEspanol.js';
 import { greet } from 'greeterFrancais.js';
 ```
-O código acima gerará um erro na linha 2 devido ao fato de o identificador `greet` já ter sido definido na linha 1. Para resolver esse problema, é usado o operador `as` para renomear a variável ou função importada.
+*O código acima gerará um erro na linha 2* devido ao fato de o identificador `greet` já ter sido definido na linha 1. Para resolver esse problema, é usado o operador `as` para renomear a variável ou função importada.
 ```js
 /* main.js */
 import { greet as greetEspanol } from 'greeterEspanol.js';
@@ -122,6 +122,44 @@ import { greet as greetFrancais } from 'greeterFrancais.js';
 greetEspanol(); // Prints: hola
 greetFrancais(); // Prints: bonjour
 ```
+
+### Exportações e Importações Padrão
+*Default Exports and Imports*
+Cada módulo também tem a opção de exportar um único valor para representar o *módulo inteiro*, chamado de `default export`. A sintaxe para exportar um objeto padrão é a seguinte:
+```js
+const resources = { 
+  valueA, 
+  valueB 
+}
+export { resources as default };
+```
+Com essa sintaxe, o objeto que contém os recursos do módulo é declarado primeiro e, em seguida, exportado na linha seguinte. Você também pode ver esta sintaxe abreviada, onde o valor a seguir `export default` é o valor padrão a ser exportado:
+```js
+const resources = {
+  valueA,
+  valueB
+}
+export default resources;
+```
+A sintaxe para **importar** *default exports* é escrita como abaixo. Observe que as chaves`{}` desapareceram da declaração de importação. Essa sintaxe é, na verdade, substitui `import { default as importedResources } from 'module.js`, e o valor importado `default` *pode receber qualquer nome escolhido pelo programador*.
+```js
+import importedResources from 'module.js';
+```
+Ou:
+```js
+import { default as importedResources } from 'module.js';
+```
+
+
+
+
+
+
+
+
+
+
+
 
 ## Ambiente de execução do Node.js (módulos CommonJS)
 Em 2009, o ambiente de execução Node.js foi criado com o objetivo de executar código JavaScript sem um navegador, permitindo assim que os programadores criassem aplicações completas (front-end e back-end) usando apenas a linguagem JavaScript. O Node.js é executado no servidor e não no navegador.  
