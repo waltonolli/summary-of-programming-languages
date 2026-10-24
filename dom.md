@@ -160,6 +160,19 @@ document.getElementById('sign').hidden = true;
 Eventos na web são interações de usuário e manipulações do navegador que você pode programar para disparar uma funcionalidade. Ao atualizar sua caixa de entrada de e-mail, dar um toque duplo em uma postagem ou percorrer um feed de notícias. Essas ações são conhecidas como eventos! Quando um evento ocorre, o navegador dispara uma *função* que é definida para o elemento. Ser capaz de responder a esses eventos torna seu site interativo e, portanto, dinâmico.
 
 
+## Tipos de eventos
+
+| **Tipo de Evento** | **Descrição** | **Eventos Comuns** |
+|---|---|---|
+| **Eventos de mouse** | Acionado por interações do mouse. | click, dblclick, mousedown, mouseup, mousemove, mouseenter, mouseleave |
+| **Eventos de teclado** | Acionado por interações do teclado. | keydown, keyup, keypress |
+| **Eventos de formulário** | Acionado ao interagir com elementos de formulário. | submit, change, input, focus, blur |
+| **Eventos de janela** | Acionado por ações da janela do navegador. | load, resize, scroll, unload |
+| **Eventos de toque** | Acionado por gestos de toque (dispositivos móveis). | touchstart, touchmove, touchend |
+
+Para obter uma lista completa de eventos, consulte a [lista de eventos](https://developer.mozilla.org/en-US/docs/Web/Events) no MDN.
+
+
 ### Manipuladores de Eventos
 
 *Manipulador de eventos* (*event handler* ou *listener*) modificam e atualizam elementos DOM após a ocorrência de um evento. Para criar um site interativo é preciso criar um manipulador de eventos para cada evento que você deseja que o navegador dispare. A maioria dos eventos no navegador ocorre sem ser notada - os eventos são *"não detectados (undetected)"* porque não há um manipulador de eventos associado ao evento para executar uma ação.
@@ -214,14 +227,4 @@ eventTarget.removeEventListener('click', eventHandlerFunction);
 
 JavaScript armazena eventos como *[Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)* **objects** com seus dados relacionados e funcionalidades como *propriedades* e *métodos*. Quando um evento é acionado, o *objeto evento* pode ser passado como um argumento para a função de manipulador de eventos.
 
-## Tipos de eventos
 
-| **Tipo de Evento** | **Descrição** | **Eventos Comuns** |
-|---|---|---|
-| **Eventos de mouse** | Acionado por interações do mouse. | click, dblclick, mousedown, mouseup, mousemove, mouseenter, mouseleave |
-| **Eventos de teclado** | Acionado por interações do teclado. | keydown, keyup, keypress |
-| **Eventos de formulário** | Acionado ao interagir com elementos de formulário. | submit, change, input, focus, blur |
-| **Eventos de janela** | Acionado por ações da janela do navegador. | load, resize, scroll, unload |
-| **Eventos de toque** | Acionado por gestos de toque (dispositivos móveis). | touchstart, touchmove, touchend |
-
-Para obter uma lista completa de eventos, consulte a [lista de eventos](https://developer.mozilla.org/en-US/docs/Web/Events) no MDN.
