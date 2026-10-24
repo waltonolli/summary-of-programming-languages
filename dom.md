@@ -34,7 +34,10 @@ Os navegadores vêm equipados com analisadores HTML que ajudam os navegadores a 
 
 O **_Document Object Model (DOM)_** é um modelo lógico que estrutura o documento HTML como um objeto. O DOM é uma árvore de *"nós"* que representa uma página HTML. Quando uma página da web é carregada, o navegador cria uma representação de árvore do documento HTML. O DOM é implementado pelos navegadores para permitir que o JavaScript *acesse, modifique e atualize* a estrutura de uma página web HTML de forma organizada.
 
+**DOM API (Interface de Programação de Aplicações)** é um conjunto de **métodos** e **propriedades** que permitem ao JavaScript alterar o conteúdo, estrutura e estilo de qualquer elemento HTML.
+
 Saiba mais sobre a [anatomia do DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Anatomy_of_the_DOM) 
+
 
 - Um *nó pai* é qualquer nó que seja um ancestral direto de outro nó.
 - Um *nó filho* é um descendente direto de outro nó, chamado de nó pai.
@@ -45,6 +48,8 @@ Saiba mais sobre a [anatomia do DOM](https://developer.mozilla.org/en-US/docs/We
   - Nós de nó: são nós que contêm outros nós.
 
 <img src="./img/dom.png" alt="diagrama do">  
+
+
 
 
 ## Métodos e Propriedades da Interface DOM
@@ -150,11 +155,35 @@ document.getElementById('sign').hidden = true;
 ```
 
 
+## Eventos (Events)
+
+Eventos na web são interações de usuário e manipulações do navegador que você pode programar para disparar uma funcionalidade. Ao atualizar sua caixa de entrada de e-mail, dar um toque duplo em uma postagem ou percorrer um feed de notícias. Essas ações são conhecidas como eventos! Quando um evento ocorre, o navegador dispara uma *função* que é definida para o elemento. Ser capaz de responder a esses eventos torna seu site interativo e, portanto, dinâmico.
+
+
+### Eventos de disparo
+
+*Manipulador de eventos* (*event handler* ou *listener*) modificam e atualizam elementos DOM após a ocorrência de um evento. Para criar um site interativo é preciso criar um manipulador de eventos para cada evento que você deseja que o navegador dispare. A maioria dos eventos no navegador ocorre sem ser notada - os eventos são *"não detectados (undetected)"* porque não há um manipulador de eventos associado ao evento para executar uma ação.
+
+Ao usar o método `.addEventListener()` podemos fazer com que um elemento DOM fique à escuta de um evento específico e execute um bloco de código quando o evento for detectado. O elemento DOM que escuta o evento é chamado de *"event target"* e o bloco de código que é executado  quando o evento ocorre é chamado de *"event handler"*. Sintaxe: `.addEventListener(eventType, listener)`.
+
+```js
+let eventTarget = document.getElementById('targetElement');
+
+function eventHandlerFunction() {
+  // this block of code will run when click event happens
+}
+
+eventTarget.addEventListener('click', eventHandlerFunction);
+```
+A função chamada *eventHandlerFunction* é passada como o segundo argumento do método *.addEventListener()* em vez de definir uma função anônima dentro do método! A melhor prática é criar uma função manipuladora de eventos nomeada. Dessa forma, seu código permanecerá organizado e reutilizável, mesmo que se torne complexo.
+
+**.on**_event_ propriedade. Os manipuladores de eventos também podem ser registrados ao definir uma propriedade `.onevent` em um elemento DOM (event target). O padrão para registrar um evento específico é anexar um elemento com `.on` *seguido pelo nome do tipo de evento em minúsculas*. Por exemplo, para registrar um manipulador de eventos para o evento `click` do elemento `<button>`, você pode usar o atributo `.onclick` para registrar o manipulador de eventos. Por exemplo: `eventTarget.onclick = eventHandlerFunction;`
+
 ## Adicionando Interatividade por Click
 
 Você pode adicionar interatividade a elementos do DOM atribuindo uma função para ser executada com base em um evento. Eventos podem incluir qualquer coisa, desde um clique até um usuário passando o mouse sobre um elemento. 
 
-Saiba mais sobre [Eventos](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events) e [Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) no MDN.
+Saiba mais sobre [Events](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events) e [Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) no MDN.
 
 Por exemplo, para modificar um elemento quando um clique acontece, a propriedade `.onclick` permite que você atribua uma função para ser executada quando um evento de clique ocorre em um elemento:
 ```js
