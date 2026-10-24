@@ -63,7 +63,7 @@ O exemplo abaixo altera o conteúdo do elemento `<h1>` para "Hello World".
 document.body.innerHTML = '<h1>Hello World</h1>';
 ```
 
-[métodos fundamentais de nível DOM 1 e como usá-los a partir do JavaScript.](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Building_and_updating_the_DOM_tree)
+Métodos fundamentais de DOM e como usá-los a partir do JavaScript >>> [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Building_and_updating_the_DOM_tree)
 
 ## Seletores CSS
 
@@ -160,9 +160,12 @@ document.getElementById('sign').hidden = true;
 Eventos na web são interações de usuário e manipulações do navegador que você pode programar para disparar uma funcionalidade. Ao atualizar sua caixa de entrada de e-mail, dar um toque duplo em uma postagem ou percorrer um feed de notícias. Essas ações são conhecidas como eventos! Quando um evento ocorre, o navegador dispara uma *função* que é definida para o elemento. Ser capaz de responder a esses eventos torna seu site interativo e, portanto, dinâmico.
 
 
-### Eventos de disparo
+### Manipuladores de Eventos
 
 *Manipulador de eventos* (*event handler* ou *listener*) modificam e atualizam elementos DOM após a ocorrência de um evento. Para criar um site interativo é preciso criar um manipulador de eventos para cada evento que você deseja que o navegador dispare. A maioria dos eventos no navegador ocorre sem ser notada - os eventos são *"não detectados (undetected)"* porque não há um manipulador de eventos associado ao evento para executar uma ação.
+
+
+### Adicionando Manipuladores de Eventos
 
 Ao usar o método `.addEventListener()` podemos fazer com que um elemento DOM fique à escuta de um evento específico e execute um bloco de código quando o evento for detectado. O elemento DOM que escuta o evento é chamado de *"event target"* e o bloco de código que é executado  quando o evento ocorre é chamado de *"event handler"*. Sintaxe: `.addEventListener(eventType, listener)`.
 
@@ -177,15 +180,7 @@ eventTarget.addEventListener('click', eventHandlerFunction);
 ```
 A função chamada *eventHandlerFunction* é passada como o segundo argumento do método *.addEventListener()* em vez de definir uma função anônima dentro do método! A melhor prática é criar uma função manipuladora de eventos nomeada. Dessa forma, seu código permanecerá organizado e reutilizável, mesmo que se torne complexo.
 
-**.on**_event_ propriedade. Os manipuladores de eventos também podem ser registrados ao definir uma propriedade `.onevent` em um elemento DOM (event target). O padrão para registrar um evento específico é anexar um elemento com `.on` *seguido pelo nome do tipo de evento em minúsculas*. Por exemplo, para registrar um manipulador de eventos para o evento `click` do elemento `<button>`, você pode usar o atributo `.onclick` para registrar o manipulador de eventos. Por exemplo: `eventTarget.onclick = eventHandlerFunction;`
-
-## Adicionando Interatividade por Click
-
-Você pode adicionar interatividade a elementos do DOM atribuindo uma função para ser executada com base em um evento. Eventos podem incluir qualquer coisa, desde um clique até um usuário passando o mouse sobre um elemento. 
-
-Saiba mais sobre [Events](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events) e [Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) no MDN.
-
-Por exemplo, para modificar um elemento quando um clique acontece, a propriedade `.onclick` permite que você atribua uma função para ser executada quando um evento de clique ocorre em um elemento:
+**.on**_event_ propriedade. Os manipuladores de eventos também podem ser registrados ao definir uma propriedade `.onevent` em um elemento DOM (event target). O padrão para registrar um evento específico é anexar um elemento com `.on` *seguido pelo nome do tipo de evento em minúsculas*. Por exemplo, para modificar um elemento quando um clique acontece, a propriedade `.onclick` permite que você atribua uma função para ser executada quando um evento de clique ocorre em um elemento:
 ```js
 let element = document.querySelector('button');
 
@@ -202,3 +197,31 @@ function turnBlue() {
 
 element.onclick = turnBlue;
 ```
+
+**MAS ATENÇÃO:** Use na grande maioria dos casos .addEventListener. É a abordagem mais recomendada. `.onevet` é aceitável quando o script é pequeno, de uso único (protótipo, teste rápido no console), se você precisa de um manipulador e quer garantir que ele substitua qualquer anterior.
+
+Saiba mais sobre [Events](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events) e [Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) no MDN.
+
+### Removendo Manipuladores de Eventos
+
+O método **`.removeEventListener()`** é usado para reverter o `.addEventListener()`. Este método impede que o alvo do evento "escute" a ocorrência de um evento quando não for mais necessário. A sintaxe é `.removeEventListener(eventType, listener)`. Porque pode haver várias funções de manipulador de eventos associadas a um evento específico `.removeEventListener()` precisa do nome exato do tipo de evento e do nome do manipulador de eventos que você deseja remover. Se `.addEventListener()` *foi fornecida uma função anônima, então esse ouvinte de evento não pode ser removido.*
+
+```js
+eventTarget.removeEventListener('click', eventHandlerFunction);
+```
+
+## Propriedades do Objeto de Eventos
+
+JavaScript armazena eventos como *[Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)* **objects** com seus dados relacionados e funcionalidades como *propriedades* e *métodos*. Quando um evento é acionado, o *objeto evento* pode ser passado como um argumento para a função de manipulador de eventos.
+
+## Tipos de eventos
+
+| **Tipo de Evento** | **Descrição** | **Eventos Comuns** |
+|---|---|---|
+| **Eventos de mouse** | Acionado por interações do mouse. | click, dblclick, mousedown, mouseup, mousemove, mouseenter, mouseleave |
+| **Eventos de teclado** | Acionado por interações do teclado. | keydown, keyup, keypress |
+| **Eventos de formulário** | Acionado ao interagir com elementos de formulário. | submit, change, input, focus, blur |
+| **Eventos de janela** | Acionado por ações da janela do navegador. | load, resize, scroll, unload |
+| **Eventos de toque** | Acionado por gestos de toque (dispositivos móveis). | touchstart, touchmove, touchend |
+
+Para obter uma lista completa de eventos, consulte a [lista de eventos](https://developer.mozilla.org/en-US/docs/Web/Events) no MDN.
