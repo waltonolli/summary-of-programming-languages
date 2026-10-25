@@ -1,5 +1,5 @@
 
-# GLOSSÁRIO BÁSICO DE JAVASCRIPT
+# <span style="background-color:#0099ff">Introdução ao JavaScript</span> 
 
 ## Conceitos importantes
 
