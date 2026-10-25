@@ -1,5 +1,5 @@
 
-# <h1 style="color:#65C556"> Introdução ao JavaScript</h1> 
+<h1 style="color:#65C556"> Introdução ao JavaScript</h1> 
 
 ## Conceitos importantes
 
