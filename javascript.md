@@ -128,6 +128,13 @@ console.log(typeof novaVariavel); // "boolean"
 | ! | não, inverte |
 
 
+## Valores 
+| Valores Primitivos | Valores por Referência |
+| -------- | --------- |
+| IMUTÁVEIS | MUTÁVEIS |
+| Strings, number, bigint, boolean, undefined, null e symbol | array, object, function |
+| São copiados. Quando você atribui um primitivo a outra variável, o valor é copiado. As duas variáveis ficam independentes. | São armazenados por referência. A variável guarda um “endereço” para o objeto na memória, não o objeto em si. Ao atribuir, o que se copia é a referência. As duas variáveis apontam para o mesmo objeto| 
+
 ## Condições / fluxo de controle
 (*conditions* / *conditionals*)
 
@@ -568,7 +575,17 @@ const digaQueEstouFazendoUmImportanteTrabalho = () => {
 };
 const ocupado = digaQueEstouFazendoUmImportanteTrabalho;
 ```
+### Função recursiva
+Função recursiva é uma função que chama a si mesma para resolver um problema. Precisa de uma condição e a chamada recursiva. Ela funciona muito bem com estruturas que têm formato “aninhado” ou de árvore, como percorrer objetos/arrays aninhados, pastas e subpastas, ou o DOM.
+```js
+function contagem(n) {
+  if (n < 0) return;   // caso base
+  console.log(n);
+  contagem(n - 1);     // chamada recursiva
+}
 
+contagem(3); // 3, 2, 1, 0
+```
 
 ## Objetos (*objects*)
 
@@ -988,9 +1005,9 @@ class Carro {
 ```
 
 
-### Instância (*instance*)
+### Instância (*instance*) 
 
-É um objeto criado a partir de uma *classe* (molde, ou função construtora).  
+É um objeto criado a partir de uma *classe* (molde, ou função construtora/constructor function).  
 - A classe define a estrutura (quais propriedades e métodos existem);
 - A instância é o objeto criado através da classe, com seus próprios valores.
 - Cria-se uma instância, normalmente com a palavra-chave `new`.
@@ -1108,4 +1125,32 @@ class Animal {
 console.log(Animal.generateName()); // returns a name
 ```
 
+
+## Promise
+
+Uma **promise** é um objeto que representa o resultado final/futuro de uma operação assíncrona (como uma requisição a uma API ou a leitura de um arquivo). Uma promise pode ser *resolvida* ou *rejeitada*. 
+
+São três estados possíveis:
+- *Pending* (pendente): estado inicial - a operação ainda está em andamento.
+- *Fulfilled* (cumprida): a operação terminou com sucesso e possui um valor resolvido.
+- *Rejected* (rejeitada): a operação falhou e tem um motivo (error).
+
+Todas as promises acabam se concretizando, permitindo-nos escrever uma lógica para o que fazer se a promessa for cumprida ou se for rejeitada.
+
+Uma promise é construída usando a palavra-chave `new` e o método construtor `Promise()`:
+
+```js
+const executorFunction = (resolve, reject) => {
+  if (someCondition) {
+     resolve('I resolved!');
+  } else {
+      reject('I rejected!'); 
+  }
+};
+const myFirstPromise = new Promise(executorFunction);
+```
+
+No exemplo acima, `myFirstPromisea` Promise é resolvida ou rejeitada com base em uma *condição simples*, mas, na prática, ela é resolvida com base nos resultados de *operações assíncronas.*  _Uma operação assíncrona é uma tarefa que demora para terminar, mas que não trava o resto do programa enquanto espera_. Você dispara a tarefa, o programa segue em frente, e quando ela termina você é avisado do resultado.
+
+Saber como consumir ou utilizar Promises é importante para entender como funcionam as funções assíncronas em JavaScript.
 
