@@ -133,7 +133,7 @@ console.log(typeof novaVariavel); // "boolean"
 | -------- | --------- |
 | IMUTÁVEIS | MUTÁVEIS |
 | Strings, number, bigint, boolean, undefined, null e symbol | array, object, function |
-| São copiados. Quando você atribui um primitivo a outra variável, o valor é copiado. As duas variáveis ficam independentes. | São armazenados por referência. A variável guarda um “endereço” para o objeto na memória, não o objeto em si. Ao atribuir, o que se copia é a referência. As duas variáveis apontam para o mesmo objeto|
+| São copiados. Quando você atribui um primitivo a outra variável, o valor é copiado. As duas variáveis ficam independentes. | São armazenados por referência. A variável guarda um “endereço” para o objeto na memória, não o objeto em si. Ao atribuir, o que se copia é a referência. As duas variáveis apontam para o mesmo objeto. |
 
 ```js
 // Valores Primitivos
